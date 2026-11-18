@@ -357,8 +357,15 @@ $("#meBtn").onclick=function(){
   function go(){zoomMe=true;renderMap()}
   if(pos){go();return}
   if(!navigator.geolocation){toast("No GPS here — turn on Simulate and tap the map");return}
-  navigator.geolocation.getCurrentPosition(function(p){onPos(p.coords.latitude,p.coords.longitude,p.coords.accuracy);go()},
-    function(){toast("Location is blocked in this page — use Simulate, or the Street/Satellite buttons")},{enableHighAccuracy:true,timeout:15000});
+  var b=$("#meBtn");b.disabled=true;b.textContent="Locating…";
+  function ok(p){b.disabled=false;onPos(p.coords.latitude,p.coords.longitude,p.coords.accuracy);go()}
+  function fail(e,second){
+    if(e.code===3&&!second){navigator.geolocation.getCurrentPosition(ok,function(e2){fail(e2,true)},{enableHighAccuracy:true,maximumAge:0,timeout:30000});return}
+    b.disabled=false;b.textContent="📍 Zoom to me";
+    toast(e.code===1?"Location denied. On iPhone: Settings > Privacy > Location Services > your browser > While Using, then reload.":
+      e.code===2?"Can't get a position yet — step outside or check Location Services, then retry.":"Location timed out — retry in a moment.");
+  }
+  navigator.geolocation.getCurrentPosition(ok,function(e){fail(e,false)},{enableHighAccuracy:false,maximumAge:60000,timeout:15000});
 };
 var LM=null,mk=null,tl={},tileOk=0,tileBad=0;
 function initLeaflet(){
