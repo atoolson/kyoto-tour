@@ -8,6 +8,10 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
 #lmap{display:none;height:430px;border-radius:10px;z-index:0}.leaflet-container{font:inherit}
+#locFab{position:absolute;right:10px;bottom:10px;z-index:1000;width:48px;height:48px;border-radius:50%;font-size:24px;padding:0;background:var(--card);color:#1a73e8;box-shadow:0 2px 8px rgba(0,0,0,.35)}
+#locFab.on{background:#1a73e8;color:#fff}
+.me-dot{width:18px;height:18px;border-radius:50%;background:#1a73e8;border:3px solid #fff;box-sizing:border-box;animation:mepulse 2s infinite}
+@keyframes mepulse{0%{box-shadow:0 0 0 0 rgba(26,115,232,.55)}70%{box-shadow:0 0 0 16px rgba(26,115,232,0)}100%{box-shadow:0 0 0 0 rgba(26,115,232,0)}}
 :root{--bg:#faf7f2;--card:#fff;--ink:#1f2328;--mute:#6b7280;--line:#e5dfd4;--accent:#b4322b;--accent-ink:#fff;--ok:#2f7d4f;--warn:#a15c00}
 @media (prefers-color-scheme:dark){:root{--bg:#16171a;--card:#202226;--ink:#eceae6;--mute:#9aa0a8;--line:#33363c;--accent:#e0584f;--accent-ink:#1a0b0a;--ok:#5ac286;--warn:#e0a24a}}
 *{box-sizing:border-box}
@@ -99,7 +103,7 @@ select,input[type=range]{font:inherit;max-width:100%}
 <div class="chips" id="chips"></div>
 
 <div id="list"></div>
-<div id="mapWrap" style="display:none"><div class="panel" id="mapbox"><div class="row" style="margin-bottom:8px"><button id="meBtn">📍 Zoom to me</button><a id="lnStreet" target="_blank" rel="noopener"><button>Street ↗</button></a><a id="lnSat" target="_blank" rel="noopener"><button>Satellite ↗</button></a><a id="lnOsm" target="_blank" rel="noopener"><button>OSM ↗</button></a></div><div id="lmap"></div><svg id="svg" viewBox="0 0 360 440"></svg>
+<div id="mapWrap" style="display:none"><div class="panel" id="mapbox"><div class="row" style="margin-bottom:8px"><button id="meBtn">📍 Zoom to me</button><a id="lnStreet" target="_blank" rel="noopener"><button>Street ↗</button></a><a id="lnSat" target="_blank" rel="noopener"><button>Satellite ↗</button></a><a id="lnOsm" target="_blank" rel="noopener"><button>OSM ↗</button></a></div><div style="position:relative"><button id="locFab" aria-label="Locate me">◎</button><div id="lmap"></div><svg id="svg" viewBox="0 0 360 440"></svg></div>
   <div class="status">Schematic map — this page isn't allowed to load street or satellite imagery (Google, Apple and OpenStreetMap tiles are all blocked), so the <b>Street / Satellite / OSM</b> buttons open the real map in a new tab, centered on you (or on the stops shown). Faint circles show the auto-play radius; the blue dot is you.</div></div></div>
 </div>
 
@@ -219,7 +223,7 @@ function renderMap(){
   $("#lnStreet").href="https://www.google.com/maps/@?api=1&map_action=map&center="+cLa+","+cLn+"&zoom="+z;
   $("#lnSat").href="https://www.google.com/maps/@?api=1&map_action=map&basemap=satellite&center="+cLa+","+cLn+"&zoom="+z;
   $("#lnOsm").href="https://www.openstreetmap.org/#map="+z+"/"+cLa.toFixed(5)+"/"+cLn.toFixed(5);
-  $("#meBtn").textContent=zoomMe?"🗺 Show all":"📍 Zoom to me";
+  $("#locFab").classList.toggle("on",zoomMe);$("#meBtn").textContent=zoomMe?"🗺 Show all":"📍 Zoom to me";
   initLeaflet();if(LM)drawLeaflet(vis);
   var svg=$("#svg");svg.innerHTML=g;svg.style.color=getComputedStyle(document.body).color;
   svg._inv=function(px,py){return {lng:(px-ox)/(c*k)+minLn,lat:(H-oy-py)/k+minLa}};
@@ -350,7 +354,7 @@ $("#rate").oninput=function(){$("#rateV").textContent=parseFloat(this.value).toF
 $("#wakeTg").onchange=setWake;$("#aliveTg").onchange=setAlive;
 $("#simTg").onchange=function(){if(this.checked){$("#gps").innerHTML='GPS: <b class="warn">simulation on</b> — go to the Map and tap to move.';$("#tMap").click();started=true}};
 $("#tList").onclick=function(){$("#list").style.display="";$("#mapWrap").style.display="none";$("#tList").classList.add("on");$("#tMap").classList.remove("on")};
-$("#tMap").onclick=function(){$("#list").style.display="none";$("#mapWrap").style.display="";$("#tMap").classList.add("on");$("#tList").classList.remove("on");drawLeaflet.fit=null;renderMap()};
+$("#tMap").onclick=function(){$("#list").style.display="none";$("#mapWrap").style.display="";$("#tMap").classList.add("on");$("#tList").classList.remove("on");drawLeaflet.fit=null;if(!watchId&&!$("#simTg").checked&&navigator.geolocation)startGPS();renderMap()};
 $("#chips").addEventListener("click",function(e){var v=e.target.getAttribute("data-v");if(v===null)return;view=v;renderChips();renderList();renderMap();window.scrollTo(0,$("#chips").offsetTop-8)});
 $("#meBtn").onclick=function(){
   if(zoomMe){zoomMe=false;renderMap();return}
@@ -393,12 +397,17 @@ function drawLeaflet(vis){
     L.marker([s.lat,s.lng],{icon:L.divIcon({className:"",html:'<span class="num" style="background:'+col+';margin:0;box-shadow:0 0 0 2px #fff">'+s.label+'</span>',iconSize:[30,22],iconAnchor:[15,11]})})
       .bindTooltip(s.name).on("click",function(){play(idxById(s.id))}).addTo(mk);
   });
-  if(pos)L.circleMarker([pos.lat,pos.lng],{radius:8,color:"#fff",weight:3,fillColor:"#1a73e8",fillOpacity:1}).addTo(mk);
   var key=view+"|"+zoomMe;
-  if(zoomMe&&pos)LM.setView([pos.lat,pos.lng],18);
-  else if(b.length&&drawLeaflet.fit!==key)LM.fitBounds(b,{padding:[24,24],maxZoom:17});
+  if(pos){
+    if(!drawLeaflet.dot){drawLeaflet.dot=L.marker([pos.lat,pos.lng],{icon:L.divIcon({className:"",html:'<div class="me-dot"></div>',iconSize:[18,18],iconAnchor:[9,9]}),zIndexOffset:1000,interactive:false}).addTo(LM);
+      drawLeaflet.acc=L.circle([pos.lat,pos.lng],{radius:pos.acc||20,color:"#1a73e8",weight:1,fillOpacity:.08,interactive:false}).addTo(LM)}
+    drawLeaflet.dot.setLatLng([pos.lat,pos.lng]);drawLeaflet.acc.setLatLng([pos.lat,pos.lng]).setRadius(Math.max(pos.acc||20,5));
+  }
+  if(zoomMe&&pos){if(drawLeaflet.fit!==key)LM.setView([pos.lat,pos.lng],18);else LM.panTo([pos.lat,pos.lng])}
+  else if(!zoomMe&&b.length&&drawLeaflet.fit!==key)LM.fitBounds(b,{padding:[24,24],maxZoom:17});
   drawLeaflet.fit=key;
 }
+$("#locFab").onclick=function(){$("#meBtn").click()};
 $("#ppB").onclick=pauseResume;$("#nextB").onclick=function(){step(1)};$("#prevB").onclick=function(){step(-1)};
 document.addEventListener("click",function(e){
   var p=e.target.closest("[data-play]"),v=e.target.closest("[data-vis]");
