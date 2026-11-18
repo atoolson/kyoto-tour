@@ -1,0 +1,467 @@
+[
+ {
+  "id": "fushimi",
+  "name": "Fushimi Inari Taisha",
+  "jp": "伏見稲荷大社",
+  "time": "7:00 AM",
+  "tip": "Open 24 hours, free entry. Full mountain loop is ~4 km / 2–3 hours; turn around anywhere.",
+  "stops": [
+   {
+    "id": "fushimi-romon",
+    "name": "Romon Gate & Main Shrine",
+    "lat": 34.96715,
+    "lng": 135.77266,
+    "radius": 70,
+    "sources": [
+     "Wikipedia: Fushimi Inari-taisha",
+     "japan-guide.com: Fushimi Inari Shrine"
+    ],
+    "text": "Welcome to Fushimi Inari Taisha, the head shrine of Inari, the Shinto kami of rice and agriculture, whom merchants also honor as a patron of business. Tradition dates the shrine to the year 711, when the Hata clan founded it. It moved to this site in 816, and the main hall was built in 1499. The towering vermilion gate in front of you is the Romon Gate, donated in 1589 by Toyotomi Hideyoshi. Look for the stone foxes. Foxes are Inari's messengers, and many hold a key in their mouths, said to open the rice granary. Step up to the main hall and offer a small prayer. The shrine never closes and costs nothing to enter, so you can walk as far up the mountain as you like, and turn around whenever your legs say so.",
+    "audio": "audio/fushimi-romon.mp3"
+   },
+   {
+    "id": "fushimi-senbon",
+    "name": "Senbon Torii (Thousand Gates)",
+    "lat": 34.96704,
+    "lng": 135.77466,
+    "radius": 50,
+    "sources": [
+     "Wikipedia: Fushimi Inari-taisha",
+     "japan-guide.com: Fushimi Inari Shrine"
+    ],
+    "text": "These are the Senbon Torii, the thousand gates. Two dense, parallel rows of vermilion torii begin here, at the back of the main grounds, and climb into the forest. Around eight hundred line this main path, and about ten thousand stand across the whole mountain, each donated by a business or an individual. The custom began in the Edo period, often to give thanks for a wish granted, or to ask for one. Donations today start at roughly four hundred thousand yen for a small gate. Each gate has the donor's name and the date of the donation inscribed on its back, so look at the backs as you walk. If the crowd is thick, keep going. It thins out noticeably the higher you climb.",
+    "audio": "audio/fushimi-senbon.mp3"
+   },
+   {
+    "id": "fushimi-okusha",
+    "name": "Okusha Hohaisho",
+    "lat": 34.96656,
+    "lng": 135.77563,
+    "radius": 45,
+    "sources": [
+     "Wikipedia: Fushimi Inari-taisha",
+     "Visitor reviews of Okusha (Google Places)"
+    ],
+    "text": "This is Okusha Hohaisho, a worship hall that serves as a gateway to the mountain's inner shrines. Mount Inari is dotted with tens of thousands of small stone altars called otsuka, each carved with the name of a different Inari deity, and the path ahead passes many of them. Visitors here try a famous stone: you lift it and guess its weight, and if it feels lighter than you expected, tradition says your wish will come true. Pilgrims also collect goshuin, the temple stamps, along the way, and reviewers say this is where you get the second one on the mountain path. From here the crowds start to thin, and the trail becomes a quiet walk beneath the gates.",
+    "audio": "audio/fushimi-okusha.mp3"
+   },
+   {
+    "id": "fushimi-yotsutsuji",
+    "name": "Yotsutsuji Viewpoint",
+    "lat": 34.96903,
+    "lng": 135.78145,
+    "radius": 70,
+    "sources": [
+     "japan-guide.com: Fushimi Inari Shrine",
+     "Fushimi Inari hiking guides"
+    ],
+    "text": "You have reached Yotsutsuji, a five-way intersection about halfway up Mount Inari, usually after a climb of thirty to forty-five minutes. This is the best viewpoint on the trail, with Kyoto spread out below you, especially lovely at dusk when the city lights come on. Notice that the gates are fewer past this point, and the trail splits into a loop around the summit, called Ichinomine, at two hundred thirty-three meters. The full round trip from the base takes about two to three hours. Most visitors turn around here, and that is a perfectly good plan. If you do continue, the path gets quieter and darker, so take your time on the stone steps, which are slippery after rain.",
+    "audio": "audio/fushimi-yotsutsuji.mp3"
+   }
+  ]
+ },
+ {
+  "id": "sanjusangendo",
+  "name": "Sanjusangendo & Hideyoshi's Legacy",
+  "jp": "三十三間堂",
+  "time": "8:30 AM",
+  "tip": "Sanjusangendo: remove shoes, no photos inside. Hokoji and Toyokuni Shrine are a short walk north toward Kiyomizu.",
+  "stops": [
+   {
+    "id": "sanju-hall",
+    "name": "Sanjusangendo Main Hall",
+    "lat": 34.98788,
+    "lng": 135.77171,
+    "radius": 60,
+    "sources": [
+     "Wikipedia: Sanjusangen-do"
+    ],
+    "text": "This is Sanjusangendo, officially called Rengeo-in, founded in 1164 by the warrior Taira no Kiyomori for a retired emperor. After a fire in 1249, the great hall was rebuilt and finished in 1266, and it still stands today. The name refers to thirty-three bays between the pillars, and the hall stretches about one hundred twenty meters. Inside, one thousand and one standing figures of the thousand-armed Kannon, the bodhisattva of compassion, wait in ten rows, around a large seated Kannon carved by the sculptor Tankei. One hundred twenty-four of the figures survived the fire, and the rest were carved over sixteen years. Near the hall's ends, you will meet the fierce wind god Fujin and thunder god Raijin. Remember to remove your shoes, and photography is not allowed inside, so give the statues your full attention.",
+    "audio": "audio/sanju-hall.mp3"
+   },
+   {
+    "id": "hokoji",
+    "name": "Hokoji Temple & the Bell",
+    "lat": 34.99212,
+    "lng": 135.77205,
+    "radius": 40,
+    "sources": [
+     "Wikipedia: Hōkō-ji (Kyoto)"
+    ],
+    "text": "This small temple, Hokoji, has a surprisingly big story. In 1586 the ruler Toyotomi Hideyoshi ordered a Great Buddha for Kyoto that would surpass the famous one in Nara, and work began in 1588. An earthquake destroyed the first statue in August of 1596, and later disasters destroyed its replacements and the halls that housed them. Today the temple is best known for its bell, cast in 1614. The inscription included a phrase meaning peace and tranquility of the country and house. Tokugawa Ieyasu objected, claiming it cursed his name, which historians describe as a pretext, since he wanted Hideyoshi's heir removed. That quarrel is remembered as a step on the road to the fall of the Toyotomi family. Hokoji is a Tendai temple, and a short stop, so take a moment to look at the bell.",
+    "audio": "audio/hokoji.mp3"
+   },
+   {
+    "id": "toyokuni",
+    "name": "Toyokuni Shrine",
+    "lat": 34.99159,
+    "lng": 135.77228,
+    "radius": 45,
+    "sources": [
+     "Wikipedia: Toyokuni Shrine (Kyoto)",
+     "Visitor reviews (Google Places)"
+    ],
+    "text": "This is Toyokuni Shrine, built in 1599 to honor Toyotomi Hideyoshi, who died in Kyoto on September eighteenth, 1598. It is his official shrine and tomb. After Hideyoshi's family fell, Tokugawa Ieyasu closed the shrine in June of 1615, reportedly to discourage unseemly displays of loyalty. It was restored in 1868, when the Meiji Emperor ordered it. Look for the ornate Karamon gate. It is generally believed to have been built for Fushimi Castle in 1598, then moved to Nijo Castle in 1623, then to a sub-temple of Nanzen-ji, and finally reached this shrine in 1876. Behind the main hall, a raised park marks the foundation where Hideyoshi's Great Buddha Hall once stood. This afternoon, Nijo Castle shows the other side of the story: the Tokugawa family who replaced his.",
+    "audio": "audio/toyokuni.mp3"
+   }
+  ]
+ },
+ {
+  "id": "kiyomizu",
+  "name": "Kiyomizu-dera & Higashiyama Streets",
+  "jp": "清水寺",
+  "time": "Late morning",
+  "tip": "Walk down through Sannenzaka and Ninenzaka for the classic pagoda photo. Many shops there close around 6 PM.",
+  "stops": [
+   {
+    "id": "kiyomizu-niomon",
+    "name": "Nio-mon Gate",
+    "lat": 34.99543,
+    "lng": 135.78334,
+    "radius": 50,
+    "sources": [
+     "Wikipedia: Kiyomizu-dera"
+    ],
+    "text": "You are at the Nio-mon, the vermilion main gate of Kiyomizu-dera. Guardian figures stand on either side, and the wide stairway in front makes this the traditional start of the temple. The name Kiyomizu means pure water, after the spring that still flows below the main hall. According to temple legend, Kiyomizu-dera was founded in the year 778, though solid documents from that early period are scarce. Today it is part of the Historic Monuments of Ancient Kyoto, a UNESCO World Heritage Site inscribed in 1994. Turn around at the top of the steps for a look back at the streets of Higashiyama sloping down toward the city. Crowds build quickly, so photograph the gate now, then move on in.",
+    "audio": "audio/kiyomizu-niomon.mp3"
+   },
+   {
+    "id": "kiyomizu-stage",
+    "name": "Main Hall & Famous Stage",
+    "lat": 34.99485,
+    "lng": 135.78502,
+    "radius": 45,
+    "sources": [
+     "Wikipedia: Kiyomizu-dera"
+    ],
+    "text": "This is the main hall and its famous stage. The present hall dates to 1633, rebuilt after a fire in 1629 with a donation from the shogun Tokugawa Iemitsu. The veranda juts out over the hillside on tall wooden pillars, about thirteen meters high, and the temple says not a single nail was used. In the Edo period, people believed that surviving a jump from the stage would grant a wish. Of two hundred thirty-four recorded jumps, about eighty-five percent survived, before the practice was banned in 1872. That is why Japanese people say jumping off the Kiyomizu stage when they mean taking the plunge. Nearby is Jishu Shrine, dedicated to Okuninushi, a god of love and good matches. Its two love stones stand ten meters apart. Walk between them with your eyes closed, and tradition says you will find true love.",
+    "audio": "audio/kiyomizu-stage.mp3"
+   },
+   {
+    "id": "kiyomizu-otowa",
+    "name": "Otowa Waterfall",
+    "lat": 34.99442,
+    "lng": 135.78528,
+    "radius": 40,
+    "sources": [
+     "Wikipedia: Kiyomizu-dera",
+     "Visitor reviews (Google Places)"
+    ],
+    "text": "Below the stage is the Otowa waterfall, the spring that gave the temple its name. The water falls in three channels into a pond, and visitors line up to drink from long-handled cups. The three streams are said to bring different blessings: health and long life, success in studies, and luck in love. The one rule everyone repeats is to choose just one stream, because drinking from more than one is said to be greedy and cancel out your wish. Look back up when you are here, because from below you can really see the wooden pillars that hold up the stage. This is one of the busiest spots in the temple, so expect a line, and be patient.",
+    "audio": "audio/kiyomizu-otowa.mp3"
+   },
+   {
+    "id": "sannenzaka",
+    "name": "Sannenzaka (Three-Year Slope)",
+    "lat": 34.99666,
+    "lng": 135.781,
+    "radius": 45,
+    "sources": [
+     "Kyoto Tourism (ja.kyoto.travel): Sannenzaka",
+     "Leaf Kyoto: origin of the name Sannenzaka",
+     "LIVE JAPAN: Ninenzaka & Sannenzaka guide"
+    ],
+    "text": "You are on Sannenzaka, the three-year slope. This stone-paved lane, about one hundred meters long, has been part of the pilgrimage route to Kiyomizu-dera since the Heian period. The famous legend says that if you fall here, you will die within three years, or at least suffer three years of bad luck. A guide to the capital from 1679 already records the superstition, so be careful on the steps. One theory says the name comes from the year the road was built, 808. Another links it to a word for childbirth, since women came to the temple to pray for a safe delivery. Wooden machiya shops line the slope, and most close around six, so if you pass later, enjoy the quieter streets.",
+    "audio": "audio/sannenzaka.mp3"
+   },
+   {
+    "id": "ninenzaka",
+    "name": "Ninenzaka (Two-Year Slope)",
+    "lat": 34.9984,
+    "lng": 135.78084,
+    "radius": 45,
+    "sources": [
+     "LIVE JAPAN: Ninenzaka & Sannenzaka guide",
+     "Flip Japan: Ninenzaka & Sannenzaka",
+     "Nomado Travel: Ninenzaka & Sannenzaka"
+    ],
+    "text": "This is Ninenzaka, the two-year slope. Like its neighbor Sannenzaka, it has a legend about falling. Stumble here, and you will die within two years, or suffer two years of bad luck. Walk it slowly. The lane is lined with traditional wooden townhouses, now shops selling ceramics, sweets, pickles, and matcha desserts. One theory says the name comes from Nene, the widow of Hideyoshi, who founded the nearby temple Kodaiji. Whether or not that is true, this is one of the most atmospheric old streets in Kyoto, and a lovely place for a snack. A few sections have steps, and the lane is shared with the occasional vehicle, so watch your step.",
+    "audio": "audio/ninenzaka.mp3"
+   },
+   {
+    "id": "yasaka",
+    "name": "Yasaka Pagoda (Hokan-ji)",
+    "lat": 34.99856,
+    "lng": 135.77918,
+    "radius": 50,
+    "sources": [
+     "Wikipedia: Yasaka Pagoda",
+     "Ancient History Sites: Hokan-ji",
+     "2000 Cranes: Hokanji Temple"
+    ],
+    "text": "Ahead is the Yasaka Pagoda, officially the pagoda of Hokan-ji temple. Legend says Prince Shotoku founded the temple in 589, and archaeology shows it began before Kyoto became the imperial capital. A fire destroyed the pagoda in 1436, and the five-story tower you see was rebuilt in 1440, with support from Ashikaga Yoshinori, the sixth Muromachi shogun. It stands about forty-six meters tall, it is an Important Cultural Property, and it rises above the streets of old wooden houses. A massive central pillar made from a single tree is said to run the height of the tower. This is the classic photo: the pagoda framed by the old townhouses at the end of the lane.",
+    "audio": "audio/yasaka.mp3"
+   }
+  ]
+ },
+ {
+  "id": "musoshin-grp",
+  "name": "Lunch: Musoshin Ramen",
+  "jp": "無双心",
+  "time": "Lunch",
+  "tip": "Order from the ticket machine at the entrance. Small shop, expect a line at peak hours.",
+  "stops": [
+   {
+    "id": "musoshin",
+    "name": "Musoshin Ramen (Gion)",
+    "lat": 35.001608,
+    "lng": 135.773127,
+    "radius": 40,
+    "sources": [
+     "Wanderlog / Spinach: Musoshin Gion",
+     "Magical Trip: Kyoto ramen guide",
+     "Visitor reviews (Google Places)"
+    ],
+    "text": "Lunch time. Musoshin is a small ramen shop in Gion that is popular with visitors and locals alike. Reviewers praise its creamy broth, which is prepared overnight, and often mention the black garlic ramen. You usually order from a ticket machine near the entrance, then hand the ticket to the staff. The shop is tiny, so expect a line at peak hours. There is also one vegan ramen on the menu, if anyone in your group needs it. Kyoto ramen tends toward rich, powerful soup, often topped with soft, sweet Kujo green onions. Slurping is perfectly normal, so dig in. Enjoy it and rest up, because the afternoon takes you to a shogun's castle and a golden temple.",
+    "audio": "audio/musoshin.mp3"
+   }
+  ]
+ },
+ {
+  "id": "nijo",
+  "name": "Nijo Castle",
+  "jp": "二条城",
+  "time": "Afternoon",
+  "tip": "Closes at 5 PM; the palace interior stops admitting a bit earlier, so see Ninomaru Palace first.",
+  "stops": [
+   {
+    "id": "nijo-east",
+    "name": "East Gate (Main Entrance)",
+    "lat": 35.01287,
+    "lng": 135.75106,
+    "radius": 50,
+    "sources": [
+     "Wikipedia: Nijō Castle",
+     "Mai-ko: Nijo Castle in Japanese History"
+    ],
+    "text": "You have reached the East Gate of Nijo Castle, the main entrance. After winning at Sekigahara, Tokugawa Ieyasu ordered this castle built in 1601 as his base in Kyoto, and it was completed under his grandson Iemitsu in 1626. The castle has two concentric rings of fortifications, each with a wall and a wide moat, and the outer wall has four gates. The whole site covers about twenty-seven and a half hectares, yet buildings occupy only about eight thousand square meters. The rest is gardens and open ground. The castle is a UNESCO World Heritage Site. It closes at five, and the palace interior stops admitting visitors a bit earlier, so head straight for the Ninomaru Palace first and save the gardens for last.",
+    "audio": "audio/nijo-east.mp3"
+   },
+   {
+    "id": "nijo-karamon",
+    "name": "Karamon Gate",
+    "lat": 35.01268,
+    "lng": 135.75033,
+    "radius": 35,
+    "sources": [
+     "Wikipedia: Nijō Castle",
+     "Visitor reviews (Google Places)"
+    ],
+    "text": "This is the Karamon, the ornate gate that serves as the formal entrance to the Ninomaru Palace. Notice how different it feels from the plain stone walls outside. Look up at the carved decoration and the metal fittings. A gate like this was built to show the status of the shogun, and visitors of rank were meant to feel it as they approached. Beyond it lies the palace where guests were received, and its sloping roofs begin to come into view. Take your photo here now, because inside the palace, photography is not allowed.",
+    "audio": "audio/nijo-karamon.mp3"
+   },
+   {
+    "id": "nijo-ninomaru",
+    "name": "Ninomaru Palace",
+    "lat": 35.01334,
+    "lng": 135.75018,
+    "radius": 40,
+    "sources": [
+     "Wikipedia: Nijō Castle"
+    ],
+    "text": "Welcome to the Ninomaru Palace, the heart of the castle, completed in 1626. Its six connected buildings are built almost entirely of cypress and are designated National Treasures. Walk through in order, and the rooms grow more formal. First the Tozamurai, where retainers waited. Then the Ohiroma, the grand hall of four chambers where the shogun received lords. Then the Kuroshoin, the inner audience chamber, and finally the Shiroshoin, the shogun's living quarters, where only female attendants were allowed. Look for the sliding doors and walls painted by artists of the Kano school, with gold leaf and carvings. Listen for the nightingale floors, which chirp as you walk. They are often called intruder alarms, but the sound really comes from clamps rubbing against nails in the beams. In 1867, Tokugawa Yoshinobu announced in this palace that he was returning power to the emperor.",
+    "audio": "audio/nijo-ninomaru.mp3"
+   },
+   {
+    "id": "nijo-garden",
+    "name": "Ninomaru Garden",
+    "lat": 35.0135,
+    "lng": 135.74925,
+    "radius": 45,
+    "sources": [
+     "Wikipedia: Nijō Castle"
+    ],
+    "text": "This is the Ninomaru Garden, designed by the landscape architect and tea master Kobori Enshu. A large pond holds three islands, surrounded by carefully placed stones and sculpted pines, and the whole design was meant to be viewed from the palace rooms. Imagine looking out from the Ohiroma as a visiting lord, seeing the garden exactly as the shogun intended. Then wander the paths around the pond. The view changes every few steps, and there is a small waterfall in one corner that adds a calm sound to the scene.",
+    "audio": "audio/nijo-garden.mp3"
+   },
+   {
+    "id": "nijo-seiryuen",
+    "name": "Seiryu-en Garden",
+    "lat": 35.01505,
+    "lng": 135.7493,
+    "radius": 50,
+    "sources": [
+     "Wikipedia: Nijō Castle",
+     "Visitor reviews (Google Places)"
+    ],
+    "text": "Seiryu-en is the newest part of Nijo Castle, built in 1965 in the northern part of the grounds. It blends Japanese and Western styles, with a wide lawn used for ceremonies on one side, and a strolling garden with a pond on the other. The garden uses more than a thousand stones, and two tea houses stand among the trees. It is used as a reception venue for official guests and cultural events. After the gold and cypress of the palace, this is a place to take a breath. There is usually more space here, and fewer crowds, than near the palace.",
+    "audio": "audio/nijo-seiryuen.mp3"
+   }
+  ]
+ },
+ {
+  "id": "kinkakuji",
+  "name": "Kinkaku-ji (Golden Pavilion)",
+  "jp": "金閣寺",
+  "time": "Late afternoon",
+  "tip": "Closes at 5 PM. One-way route: gate, pavilion, waterfall, pond, tea house, Fudo-do, exit.",
+  "stops": [
+   {
+    "id": "kinkaku-gate",
+    "name": "Entrance Gate",
+    "lat": 35.03888,
+    "lng": 135.72928,
+    "radius": 40,
+    "sources": [
+     "Wikipedia: Kinkaku-ji"
+    ],
+    "text": "Welcome to Kinkaku-ji, formally named Rokuon-ji, which means Deer Garden Temple. The land was originally a villa called Kitayama-dai, owned by the statesman Saionji Kintsune. In 1397, the shogun Ashikaga Yoshimitsu bought it and turned it into a grand estate. After his death, his son converted it into a Zen temple, as Yoshimitsu had wished. Today it belongs to the Rinzai sect, Shokoku-ji school, and is a UNESCO World Heritage Site. During the Onin War, from 1467 to 1477, every building here except the pavilion was burned down. The route is one-way, so you will see the pavilion first, then loop through the garden. Allow about thirty to forty-five minutes, and remember that the grounds close at five.",
+    "audio": "audio/kinkaku-gate.mp3"
+   },
+   {
+    "id": "kinkaku-pavilion",
+    "name": "Golden Pavilion & Mirror Pond",
+    "lat": 35.03935,
+    "lng": 135.72838,
+    "radius": 45,
+    "sources": [
+     "Wikipedia: Kinkaku-ji"
+    ],
+    "text": "This is the Golden Pavilion, the Kinkaku. It is a shariden, a relic hall that enshrines relics of the Buddha, and it stands over Kyoko-chi, the Mirror Pond, which holds ten small islands. The largest islet represents the Japanese islands, and four stones in a row near the pavilion represent sailboats bound for the Isle of Eternal Life. The three floors are each in a different style: aristocratic palace style below, samurai style in the middle, and Zen temple style on top. The upper two floors are covered in gold leaf, and a bronze phoenix crowns the roof. The building is not the original. A young novice monk set it on fire on July second, 1950, and it was rebuilt in 1955. The gold was replaced in 1986 and 1987, with leaf five times thicker than the original. Yukio Mishima's novel The Temple of the Golden Pavilion was inspired by the fire.",
+    "audio": "audio/kinkaku-pavilion.mp3"
+   },
+   {
+    "id": "kinkaku-ryumon",
+    "name": "Ryumon Waterfall",
+    "lat": 35.03999,
+    "lng": 135.72857,
+    "radius": 35,
+    "sources": [
+     "Visitor reviews of Ryumon-taki (Google Places)"
+    ],
+    "text": "Further along the path you will find Ryumon-taki, the Dragon Gate Waterfall. It is a small cascade, about two and a half meters high, and it is based on a Chinese legend. A carp that manages to climb the Dragon Gate falls will turn into a dragon. At its base stands a carp stone, set so that it looks like a fish struggling upstream. The story is a symbol of effort and advancement. Some visitors say the waterfall may be a remnant of the earlier Saionji family villa, which would make it older than the pavilion itself. Take a moment here for the sound of the water. It is one of the quieter spots on the route.",
+    "audio": "audio/kinkaku-ryumon.mp3"
+   },
+   {
+    "id": "kinkaku-anmintaku",
+    "name": "Anmintaku Pond",
+    "lat": 35.04038,
+    "lng": 135.72882,
+    "radius": 35,
+    "sources": [
+     "Visitor reviews of Anmintaku pond (Google Places)"
+    ],
+    "text": "This is Anmintaku, a quiet pond in the woods behind the pavilion. After the glitter of the gold, the dark water and deep green here are a deliberate contrast. The pond is said never to dry up, even in long droughts. On a small island in the center stands a tiny stone pagoda, and visitors toss coins toward it for luck. If you want a good photo, step away from the coin-tossing spot, where it is usually noisy. Remember that the route is one-way, so continue along the path to the tea house and the hall of Fudo.",
+    "audio": "audio/kinkaku-anmintaku.mp3"
+   },
+   {
+    "id": "kinkaku-sekkatei",
+    "name": "Sekka-tei Tea House",
+    "lat": 35.04013,
+    "lng": 135.72929,
+    "radius": 35,
+    "sources": [
+     "Visitor reviews of Sekka-tei (Google Places)"
+    ],
+    "text": "On the hillside here is Sekka-tei, a small tea house from the Edo period, tucked beyond the pond. Most visitors pass without noticing it, unless a guide points it out. It is known for the unusual pillar in its alcove. Tea gatherings are a classic part of Japanese garden life, and this quiet building is a reminder that these grounds were once a private retreat, not only a sightseeing stop. Take a short pause before the last stretch of the route.",
+    "audio": "audio/kinkaku-sekkatei.mp3"
+   },
+   {
+    "id": "kinkaku-fudodo",
+    "name": "Fudo-do Hall",
+    "lat": 35.04017,
+    "lng": 135.73008,
+    "radius": 40,
+    "sources": [
+     "Visitor reviews of Fudo-do (Google Places)"
+    ],
+    "text": "Fudo-do is the last building on the route, a small hall dedicated to Fudo Myo-o, the Immovable Wisdom King, a fierce guardian figure said to protect practitioners from obstacles and hindrances. People light incense here and make wishes. Beyond it you will find souvenir shops and snack stalls where the path exits, so it is a good moment to rest and refuel before the bus ride back toward the center of Kyoto.",
+    "audio": "audio/kinkaku-fudodo.mp3"
+   }
+  ]
+ },
+ {
+  "id": "samurai-grp",
+  "name": "Samurai & Ninja Museum",
+  "jp": "サムライ忍者ミュージアム京都",
+  "time": "Evening",
+  "tip": "Last entry is around 6:30 PM per your notes. Two buildings: the main museum and the experience floor.",
+  "stops": [
+   {
+    "id": "samurai-main",
+    "name": "Main Museum",
+    "lat": 35.00722,
+    "lng": 135.76357,
+    "radius": 45,
+    "sources": [
+     "Mai-ko: Samurai Ninja Museum Kyoto"
+    ],
+    "text": "Time for a crash course in samurai history. This is the main museum, where you can get close to authentic armor, including Edo-period pieces more than three hundred years old, and a wall of real Japanese blades from different eras, each with stories about legendary samurai. The basic ticket includes a thirty-minute English-language guided tour, followed by time to explore on your own, and most guests spend about an hour. As you listen, think back to Nijo Castle. The shogun's power, the samurai class, and the long peace of the Edo period explain so much of what you see across Japan, from etiquette to architecture. Ask questions. The guides are happy to go deep.",
+    "audio": "audio/samurai-main.mp3"
+   },
+   {
+    "id": "samurai-annex",
+    "name": "Experience Floor (Annex)",
+    "lat": 35.00485,
+    "lng": 135.76664,
+    "radius": 40,
+    "sources": [
+     "Mai-ko: Samurai Ninja Museum Kyoto"
+    ],
+    "text": "You are near the experience floor, the hands-on side of the Samurai Ninja Museum. This is where costume try-ons, ninja activities, and sword lessons are run, depending on which ticket you booked. Some experiences check in here, and afterward you walk over to the main museum for the guided tour, which starts about fifteen minutes after the experience ends. If you are not sure which building to start at, check your booking confirmation, or just ask the staff. They are used to it. Ninja star throwing is part of the basic ticket, and it is more competitive than it looks.",
+    "audio": "audio/samurai-annex.mp3"
+   }
+  ]
+ },
+ {
+  "id": "nishiki",
+  "name": "Nishiki Market",
+  "jp": "錦市場",
+  "time": "~8:00 PM",
+  "tip": "Food tour starts here. Many stalls and shops close around 5 PM.",
+  "stops": [
+   {
+    "id": "nishiki-west",
+    "name": "West Entrance & Daiyasu",
+    "lat": 35.005,
+    "lng": 135.76261,
+    "radius": 45,
+    "sources": [
+     "Wikipedia: Nishiki Market",
+     "Visitor reviews of Daiyasu (Google Places)"
+    ],
+    "text": "Welcome to Nishiki Market, often called Kyoto's Kitchen. You are at the west entrance, near Takakura Street. This narrow, covered arcade runs about four hundred meters east to Teramachi Street, and holds around one hundred thirty shops. Fish have been sold in this area since at least the year 782, helped by cold groundwater, and the market received official permission from the shogunate to sell fish in 1615. The nickname took hold after 1928, when shops selling fruit, vegetables, meat, and more joined in. Right at this end, Daiyasu serves raw oysters, with a standing bar if you want to eat quickly. Pace yourself, because there is a lot to eat ahead.",
+    "audio": "audio/nishiki-west.mp3"
+   },
+   {
+    "id": "nishiki-mid",
+    "name": "Market Midway",
+    "lat": 35.005,
+    "lng": 135.76445,
+    "radius": 50,
+    "sources": [
+     "Wikipedia: Nishiki Market"
+    ],
+    "text": "You are in the middle of Nishiki Market. Look for tsukemono, the Kyoto-style pickles, and kyoyasai, the Kyoto heirloom vegetables sold by specialist greengrocers. Grilled fresh fish, oyakodon, and nishin soba, a Kyoto noodle dish topped with herring, are all on offer in the arcade. You will also see Kyoto-style pottery, and many vendors have cut back on plastic and use biodegradable packaging. The market is narrow and crowded, so step to the side before you stop, and stand away from the shop fronts when you eat. Remember that your food tour starts around eight, so save some room.",
+    "audio": "audio/nishiki-mid.mp3"
+   },
+   {
+    "id": "nishiki-aritsugu",
+    "name": "Aritsugu Knives",
+    "lat": 35.0051,
+    "lng": 135.76619,
+    "radius": 40,
+    "sources": [
+     "Wikipedia: Nishiki Market",
+     "Visitor reviews of Aritsugu (Google Places)"
+    ],
+    "text": "This is Aritsugu, a knife maker founded in 1560, one of the oldest names in Nishiki Market. It sells hand-crafted knives and kitchenware. Visitors say the staff explain the different types of knives and how to care for them, and can engrave a name on the blade. If you plan to buy one, ask about maintenance, and check your airline's rules for carrying knives in luggage. Note that the shop closes around five in the afternoon, so for the evening food tour you may want to come back earlier on another day.",
+    "audio": "audio/nishiki-aritsugu.mp3"
+   },
+   {
+    "id": "nishiki-tenmangu",
+    "name": "Nishiki Tenmangu Shrine",
+    "lat": 35.00505,
+    "lng": 135.7673,
+    "radius": 40,
+    "sources": [
+     "Wikipedia: Nishiki Tenmangu",
+     "Discover Kyoto: Nishiki Tenmangu",
+     "Komoot / SamuraiWiki: Nishiki Tenmangu"
+    ],
+    "text": "At the eastern end of the market stands Nishiki Tenmangu, a shrine to Sugawara no Michizane, the Heian scholar worshipped as Tenjin, the god of learning. It was founded in 1003 at the former residence of Michizane's father, and moved to this spot in 1587, during Hideyoshi's reconstruction of Kyoto. Notice the torii gate built right into the buildings on either side. Inside, there is a spring called Nishiki no Mizu, which comes from about thirty meters underground and stays between seventeen and eighteen degrees all year. This is the kind of water that helped make the market possible. Look for the bronze ox statue. Tenjin shrines keep one, and stroking it is said to bring wisdom. Students come to pray here before exams.",
+    "audio": "audio/nishiki-tenmangu.mp3"
+   }
+  ]
+ }
+]

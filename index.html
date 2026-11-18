@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kyoto Day Two Audio Tour</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+#lmap{display:none;height:430px;border-radius:10px;z-index:0}.leaflet-container{font:inherit}
+:root{--bg:#faf7f2;--card:#fff;--ink:#1f2328;--mute:#6b7280;--line:#e5dfd4;--accent:#b4322b;--accent-ink:#fff;--ok:#2f7d4f;--warn:#a15c00}
+@media (prefers-color-scheme:dark){:root{--bg:#16171a;--card:#202226;--ink:#eceae6;--mute:#9aa0a8;--line:#33363c;--accent:#e0584f;--accent-ink:#1a0b0a;--ok:#5ac286;--warn:#e0a24a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 -apple-system,system-ui,"Segoe UI",Roboto,sans-serif;padding-bottom:110px}
+header{padding:18px 16px 8px}
+h1{margin:0;font-size:22px;letter-spacing:-.01em}
+.sub{color:var(--mute);font-size:14px;margin-top:2px}
+.wrap{max-width:640px;margin:0 auto}
+button{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:10px 14px}
+button.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:600}
+button:disabled{opacity:.5}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:10px 16px}
+.status{font-size:13px;color:var(--mute);margin-top:8px}
+.status b{color:var(--ink)}
+.warn{color:var(--warn)}.ok{color:var(--ok)}
+.tabs{display:flex;margin:10px 16px 0;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.tabs button{flex:1;border:0;border-radius:0;background:var(--card)}
+.tabs button.on{background:var(--ink);color:var(--bg)}
+.chips{display:flex;gap:6px;overflow-x:auto;padding:10px 16px 2px;-webkit-overflow-scrolling:touch}
+.chips button{white-space:nowrap;padding:6px 12px;font-size:13px;border-radius:16px}
+.chips button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.seg button{border:0;border-radius:0;padding:8px 12px;font-size:14px}
+.seg button.on{background:var(--ink);color:var(--bg)}
+label.tg{display:flex;gap:8px;align-items:center;font-size:14px;margin-top:8px}
+.next{border-left:4px solid var(--accent)}
+.grp{margin:18px 16px 0;padding-top:4px}
+.grp h2{margin:0;font-size:18px;display:flex;align-items:center;gap:8px}
+.grp .dot{width:12px;height:12px;border-radius:50%;display:inline-block}
+.grp .gmeta{font-size:13px;color:var(--mute);margin-top:2px}
+.grp .gtip{font-size:13px;margin-top:4px}
+.stop{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:8px 16px}
+.stop.now{border-color:var(--accent);box-shadow:0 0 0 2px color-mix(in srgb,var(--accent) 25%,transparent)}
+.stop h3{margin:0;font-size:16px}
+.num{display:inline-flex;min-width:26px;height:22px;padding:0 6px;border-radius:11px;color:#fff;font-size:12px;font-weight:700;align-items:center;justify-content:center;margin-right:8px;vertical-align:1px}
+.meta{font-size:13px;color:var(--mute);margin:6px 0}
+.dist{font-weight:600;color:var(--ink)}
+.row button{padding:8px 12px;font-size:14px}
+details{margin-top:8px;font-size:14px}
+summary{cursor:pointer;color:var(--mute)}
+.src{font-size:12px;color:var(--mute);margin-top:6px}
+a{color:var(--accent)}
+.player{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);padding:10px 14px calc(10px + env(safe-area-inset-bottom));z-index:5}
+.player .in{max-width:640px;margin:0 auto;display:flex;gap:10px;align-items:center}
+.player .t{flex:1;min-width:0}
+.player .t div:first-child{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.player .t div:last-child{font-size:12px;color:var(--mute)}
+.bar{height:3px;background:var(--line);border-radius:2px;margin-top:4px;overflow:hidden}.bar i{display:block;height:100%;width:0;background:var(--accent)}
+#mapbox{padding:8px}
+svg{width:100%;height:auto;display:block;background:color-mix(in srgb,var(--line) 35%,var(--card));border-radius:10px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:96px;background:var(--ink);color:var(--bg);padding:8px 14px;border-radius:20px;font-size:14px;z-index:9;max-width:90%;display:none}
+select,input[type=range]{font:inherit;max-width:100%}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Kyoto · Day Two</h1>
+  <div class="sub" id="hsub">Geo-fenced audio tour · ~1 min per stop</div>
+</header>
+
+<div class="panel" id="ctrl">
+  <div class="row">
+    <button class="primary" id="startBtn">▶ Start tour</button>
+    <button id="preBtn">Preload audio</button>
+  </div>
+  <div class="status" id="gps">GPS: not started. Tap <b>Start tour</b> to enable.</div>
+  <div class="status" id="keep"></div>
+
+  <div style="margin-top:12px" class="row">
+    <span class="sub">Voice:</span>
+    <div class="seg" id="modeSeg"><button data-m="audio" class="on">Audio tracks</button><button data-m="tts">Phone voice</button></div>
+  </div>
+  <div id="ttsOpts" style="display:none;margin-top:8px">
+    <div class="row"><select id="voiceSel"></select></div>
+    <label class="tg">Speed <input type="range" id="rate" min="0.7" max="1.3" step="0.05" value="1"> <span id="rateV">1.0×</span></label>
+  </div>
+  <label class="tg"><input type="checkbox" id="autoTg" checked> Auto-play when I arrive at a stop</label>
+  <label class="tg"><input type="checkbox" id="wakeTg" checked> Keep screen awake</label>
+  <label class="tg"><input type="checkbox" id="aliveTg" checked> Keep-alive audio (helps GPS survive a locked screen; not guaranteed)</label>
+  <label class="tg"><input type="checkbox" id="simTg"> Simulate location (tap the Map to move)</label>
+  <div class="row" style="margin-top:10px"><button id="resetBtn" style="font-size:13px;padding:6px 10px">Reset played stops</button></div>
+</div>
+
+<div id="nextBox" class="panel next" style="display:none"></div>
+
+<div class="tabs"><button id="tList" class="on">List</button><button id="tMap">Map</button></div>
+<div class="chips" id="chips"></div>
+
+<div id="list"></div>
+<div id="mapWrap" style="display:none"><div class="panel" id="mapbox"><div class="row" style="margin-bottom:8px"><button id="meBtn">📍 Zoom to me</button><a id="lnStreet" target="_blank" rel="noopener"><button>Street ↗</button></a><a id="lnSat" target="_blank" rel="noopener"><button>Satellite ↗</button></a><a id="lnOsm" target="_blank" rel="noopener"><button>OSM ↗</button></a></div><div id="lmap"></div><svg id="svg" viewBox="0 0 360 440"></svg>
+  <div class="status">Schematic map — this page isn't allowed to load street or satellite imagery (Google, Apple and OpenStreetMap tiles are all blocked), so the <b>Street / Satellite / OSM</b> buttons open the real map in a new tab, centered on you (or on the stops shown). Faint circles show the auto-play radius; the blue dot is you.</div></div></div>
+</div>
+
+<div class="player"><div class="in">
+  <button id="prevB" aria-label="Previous stop">⏮</button>
+  <button class="primary" id="ppB" aria-label="Play or pause">▶</button>
+  <button id="nextB" aria-label="Next stop">⏭</button>
+  <div class="t"><div id="pTitle">Nothing playing</div><div id="pSub">Tap ▶ to play the next stop</div><div class="bar"><i id="pBar"></i></div></div>
+</div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+"use strict";
+var $=function(s){return document.querySelector(s)};
+var COLORS=["#b4322b","#c2410c","#a16207","#4d7c0f","#0f766e","#1d4ed8","#6d28d9","#be185d","#475569"];
+var zoomMe=false,groups=[],all=[],view="all",playingId=null,mode="audio",pos=null,watchId=null,started=false,wake=null;
+var visited={},blobUrls={},lastFix=0,queueTok=0,paused=false,keepEl=null;
+var audioEl=new Audio();audioEl.preload="none";
+try{visited=JSON.parse(localStorage.getItem("kyoto2b_visited")||"{}")}catch(e){}
+function saveV(){try{localStorage.setItem("kyoto2b_visited",JSON.stringify(visited))}catch(e){}}
+function toast(m){var t=$("#toast");t.textContent=m;t.style.display="block";clearTimeout(toast.h);toast.h=setTimeout(function(){t.style.display="none"},3500)}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function hav(a,b,c,d){var R=6371000,r=Math.PI/180,dl=(c-a)*r,dn=(d-b)*r;
+  var x=Math.sin(dl/2)*Math.sin(dl/2)+Math.cos(a*r)*Math.cos(c*r)*Math.sin(dn/2)*Math.sin(dn/2);
+  return 2*R*Math.asin(Math.sqrt(x))}
+function fmt(m){return m<1000?Math.round(m/10)*10+" m":(m/1000).toFixed(1)+" km"}
+function dirLink(s){return "https://www.google.com/maps/dir/?api=1&destination="+s.lat+","+s.lng+"&travelmode=walking"}
+
+/* ---------- data ---------- */
+fetch("stops.json").then(function(r){return r.json()}).then(function(d){
+  groups=d;all=[];
+  groups.forEach(function(g,gi){g.stops.forEach(function(s,si){s.gi=gi;s.si=si;s.color=COLORS[gi%COLORS.length];s.label=(gi+1)+"."+(si+1);all.push(s)})});
+  $("#hsub").textContent="Geo-fenced audio tour · "+groups.length+" places · "+all.length+" stops · ~1 min each";
+  renderChips();renderAll();$("#pSub").textContent="Tap ▶ to play the first stop";
+}).catch(function(){$("#list").innerHTML='<div class="panel warn">Could not load stops.</div>'});
+
+/* ---------- render ---------- */
+function idxById(id){for(var i=0;i<all.length;i++)if(all[i].id===id)return i;return -1}
+function nextIdx(){for(var i=0;i<all.length;i++)if(!visited[all[i].id])return i;return -1}
+function renderAll(){renderList();renderNext();renderMap();updPlayer()}
+function renderChips(){
+  var h='<button data-v="all" class="'+(view==="all"?"on":"")+'">All</button>';
+  groups.forEach(function(g,i){h+='<button data-v="'+i+'" class="'+(String(view)===String(i)?"on":"")+'">'+(i+1)+'. '+esc(g.name.split(" &")[0].split(":")[0])+'</button>'});
+  $("#chips").innerHTML=h;
+}
+function renderList(){
+  var h="";
+  groups.forEach(function(g,gi){
+    if(view!=="all"&&String(view)!==String(gi))return;
+    var n=g.stops.filter(function(s){return visited[s.id]}).length,col=COLORS[gi%COLORS.length];
+    h+='<div class="grp" id="g-'+gi+'"><h2><span class="dot" style="background:'+col+'"></span>'+esc(g.name)+'</h2>'+
+       '<div class="gmeta">'+esc(g.jp)+' · '+esc(g.time)+' · '+n+'/'+g.stops.length+' played</div><div class="gtip">'+esc(g.tip)+'</div></div>';
+    g.stops.forEach(function(s){
+      var d=pos?fmt(hav(pos.lat,pos.lng,s.lat,s.lng)):"—";
+      var cls="stop"+(playingId===s.id?" now":"");
+      var i=idxById(s.id);
+      h+='<div class="'+cls+'" id="s-'+s.id+'"><h3><span class="num" style="background:'+(visited[s.id]?"#2f7d4f":s.color)+'">'+s.label+'</span>'+esc(s.name)+'</h3>'+
+      '<div class="meta">Distance: <span class="dist">'+d+'</span> · auto-play radius '+s.radius+' m'+(visited[s.id]?' · <span class="ok">played</span>':'')+'</div>'+
+      '<div class="row"><button class="primary" data-play="'+i+'">'+(playingId===s.id&&!paused?"⏸ Pause":"▶ Play")+'</button>'+
+      '<a href="'+dirLink(s)+'" target="_blank" rel="noopener"><button>Directions</button></a>'+
+      '<button data-vis="'+i+'">'+(visited[s.id]?"Mark unplayed":"Mark played")+'</button></div>'+
+      '<details><summary>Read the narration</summary><p>'+esc(s.text)+'</p><div class="src">Sources: '+esc(s.sources.join("; "))+'</div></details></div>';
+    });
+  });
+  $("#list").innerHTML=h;
+}
+function renderNext(){
+  var i=nextIdx(),b=$("#nextBox");
+  if(i<0){b.style.display="block";b.innerHTML="<b>All stops played.</b> Nice day.";return}
+  var s=all[i];b.style.display="block";
+  b.innerHTML='<div class="sub">Next stop · '+esc(groups[s.gi].name)+'</div><b>'+s.label+' '+esc(s.name)+'</b>'+(pos?' · <span class="dist">'+fmt(hav(pos.lat,pos.lng,s.lat,s.lng))+'</span> away':'')+
+  '<div class="row" style="margin-top:8px"><button class="primary" data-play="'+i+'">▶ Play now</button><a href="'+dirLink(s)+'" target="_blank" rel="noopener"><button>Directions</button></a></div>';
+}
+function updPlayer(){
+  var i=idxById(playingId),s=i>=0?all[i]:null;
+  $("#pTitle").textContent=s?s.label+" "+s.name:"Nothing playing";
+  $("#pSub").textContent=s?(paused?"Paused":"Playing · "+(mode==="audio"?"audio track":"phone voice")):"Tap ▶ to play the next stop";
+  $("#ppB").textContent=(s&&!paused)?"⏸":"▶";
+}
+
+/* ---------- map ---------- */
+function renderMap(){
+  if(!all.length)return;
+  var vis=all.filter(function(s){return view==="all"||String(s.gi)===String(view)});
+  if(zoomMe&&pos){
+    var near=vis.filter(function(s){return hav(pos.lat,pos.lng,s.lat,s.lng)<350});
+    if(!near.length)near=vis.slice().sort(function(a,b){return hav(pos.lat,pos.lng,a.lat,a.lng)-hav(pos.lat,pos.lng,b.lat,b.lng)}).slice(0,2);
+    vis=near;
+  }
+  var pts=vis.map(function(s){return [s.lat,s.lng]});
+  if(pos){ /* include user only if reasonably close */
+    var nearest=Math.min.apply(0,vis.map(function(s){return hav(pos.lat,pos.lng,s.lat,s.lng)}));
+    if(zoomMe||nearest<4000)pts.push([pos.lat,pos.lng]);
+  }
+  var la=pts.map(function(p){return p[0]}),ln=pts.map(function(p){return p[1]});
+  var minLa=Math.min.apply(0,la),maxLa=Math.max.apply(0,la),minLn=Math.min.apply(0,ln),maxLn=Math.max.apply(0,ln);
+  var c=Math.cos(((minLa+maxLa)/2)*Math.PI/180);
+  var W=360,H=440,P=36,mn=zoomMe?0.004:0.0008,spanX=Math.max((maxLn-minLn)*c,mn),spanY=Math.max(maxLa-minLa,mn);
+  var k=Math.min((W-2*P)/spanX,(H-2*P)/spanY);
+  var ox=(W-spanX*k)/2,oy=(H-spanY*k)/2;
+  function X(l){return ox+(l-minLn)*c*k}function Y(l){return H-oy-(l-minLa)*k}
+  var mpp=111320/k,g="",prev=null;
+  vis.forEach(function(s){
+    if(prev&&prev.gi===s.gi)g+='<line x1="'+X(prev.lng)+'" y1="'+Y(prev.lat)+'" x2="'+X(s.lng)+'" y2="'+Y(s.lat)+'" stroke="'+s.color+'" stroke-opacity=".45" stroke-dasharray="4 4"/>';
+    prev=s;
+  });
+  vis.forEach(function(s){
+    var x=X(s.lng),y=Y(s.lat),r=Math.max(9,s.radius/mpp),col=visited[s.id]?"#2f7d4f":s.color;
+    g+='<g><circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="'+col+'" fill-opacity=".10" stroke="'+col+'" stroke-opacity=".45"/>'+
+    '<circle cx="'+x+'" cy="'+y+'" r="9" fill="'+col+'"/><text x="'+x+'" y="'+(y+3.5)+'" text-anchor="middle" font-size="8.5" font-weight="700" fill="#fff">'+s.label+'</text>';
+    if(view!=="all"||zoomMe)g+='<text x="'+x+'" y="'+(y-13)+'" text-anchor="middle" font-size="9" fill="currentColor">'+esc(s.name.length>26?s.name.slice(0,25)+"…":s.name)+'</text>';
+    g+='</g>';
+  });
+  if(pos)g+='<circle cx="'+X(pos.lng)+'" cy="'+Y(pos.lat)+'" r="7" fill="#1a73e8" stroke="#fff" stroke-width="2.5"/>';
+  var cLa=pos&&zoomMe?pos.lat:(minLa+maxLa)/2,cLn=pos&&zoomMe?pos.lng:(minLn+maxLn)/2,z=zoomMe?18:(view==="all"?12:16);
+  $("#lnStreet").href="https://www.google.com/maps/@?api=1&map_action=map&center="+cLa+","+cLn+"&zoom="+z;
+  $("#lnSat").href="https://www.google.com/maps/@?api=1&map_action=map&basemap=satellite&center="+cLa+","+cLn+"&zoom="+z;
+  $("#lnOsm").href="https://www.openstreetmap.org/#map="+z+"/"+cLa.toFixed(5)+"/"+cLn.toFixed(5);
+  $("#meBtn").textContent=zoomMe?"🗺 Show all":"📍 Zoom to me";
+  initLeaflet();if(LM)drawLeaflet(vis);
+  var svg=$("#svg");svg.innerHTML=g;svg.style.color=getComputedStyle(document.body).color;
+  svg._inv=function(px,py){return {lng:(px-ox)/(c*k)+minLn,lat:(H-oy-py)/k+minLa}};
+}
+$("#svg").addEventListener("click",function(e){
+  if(!$("#simTg").checked)return;
+  var svg=$("#svg"),r=svg.getBoundingClientRect(),vb=svg.viewBox.baseVal;
+  var ll=svg._inv((e.clientX-r.left)*vb.width/r.width,(e.clientY-r.top)*vb.height/r.height);
+  onPos(ll.lat,ll.lng,10,true);
+});
+
+/* ---------- playback ---------- */
+function stopAll(){queueTok++;try{audioEl.pause()}catch(e){}try{speechSynthesis.cancel()}catch(e){}}
+function done(id){if(playingId===id){playingId=null;paused=false;$("#pBar").style.width="0";renderAll()}}
+function play(i,why){
+  var s=all[i];if(!s)return;
+  stopAll();playingId=s.id;paused=false;visited[s.id]=true;saveV();
+  if(mode==="audio"){
+    audioEl.src=blobUrls[s.id]||s.audio;
+    audioEl.onended=function(){done(s.id)};
+    audioEl.ontimeupdate=function(){if(audioEl.duration)$("#pBar").style.width=(100*audioEl.currentTime/audioEl.duration)+"%"};
+    var p=audioEl.play();
+    if(p&&p.catch)p.catch(function(){paused=true;updPlayer();renderList();toast("Browser blocked autoplay — tap ▶")});
+  }else speak(s);
+  media(s);renderAll();
+  if(why)toast("Arrived: "+s.name);
+}
+function speak(s){
+  if(!window.speechSynthesis){toast("This browser has no phone voice");return}
+  var tok=++queueTok,parts=s.text.match(/[^.!?]+[.!?]+/g)||[s.text],n=0;
+  var v=speechSynthesis.getVoices().filter(function(x){return x.voiceURI===$("#voiceSel").value})[0];
+  (function next(){
+    if(tok!==queueTok)return;
+    if(n>=parts.length){done(s.id);return}
+    var u=new SpeechSynthesisUtterance(parts[n++].trim());
+    if(v){u.voice=v;u.lang=v.lang}else u.lang="en-US";
+    u.rate=parseFloat($("#rate").value);
+    u.onend=next;u.onerror=function(){};
+    $("#pBar").style.width=(100*n/parts.length)+"%";
+    speechSynthesis.speak(u);
+  })();
+}
+function pauseResume(){
+  if(!playingId){var i=nextIdx();play(i<0?0:i);return}
+  if(mode==="audio"){if(audioEl.paused){audioEl.play();paused=false}else{audioEl.pause();paused=true}}
+  else{if(speechSynthesis.paused){speechSynthesis.resume();paused=false}else{speechSynthesis.pause();paused=true}}
+  renderAll();
+}
+function media(s){
+  if(!("mediaSession" in navigator))return;
+  try{navigator.mediaSession.metadata=new MediaMetadata({title:s.name,artist:groups[s.gi].name,album:"Kyoto Day Two"});
+  navigator.mediaSession.setActionHandler("play",pauseResume);navigator.mediaSession.setActionHandler("pause",pauseResume);
+  navigator.mediaSession.setActionHandler("nexttrack",function(){step(1)});navigator.mediaSession.setActionHandler("previoustrack",function(){step(-1)})}catch(e){}
+}
+function step(d){var c=idxById(playingId);if(c<0)c=(d>0?nextIdx()-1:nextIdx());var n=Math.max(0,Math.min(all.length-1,c+d));play(n)}
+
+/* ---------- geofence ---------- */
+function onPos(lat,lng,acc,fake){
+  if(!fake&&$("#simTg").checked)return;
+  pos={lat:lat,lng:lng,acc:acc};lastFix=Date.now();
+  $("#gps").innerHTML='GPS: <b class="ok">tracking</b> ('+(fake?"simulated":"±"+Math.round(acc)+" m")+') · '+new Date().toLocaleTimeString();
+  if(!playingId&&$("#autoTg").checked&&started){
+    var best=-1,bd=1e9;
+    all.forEach(function(s,i){
+      if(visited[s.id])return;
+      var d=hav(lat,lng,s.lat,s.lng);
+      if(d<=s.radius+Math.min(acc||0,30)&&d<bd){bd=d;best=i}
+    });
+    if(best>=0)play(best,"gps");
+  }
+  renderList();renderNext();renderMap();
+}
+function startGPS(){
+  if(!navigator.geolocation){$("#gps").innerHTML='GPS: <b class="warn">not available</b> in this browser — use manual play.';return}
+  $("#gps").innerHTML='GPS: requesting permission…';
+  try{
+    watchId=navigator.geolocation.watchPosition(function(p){onPos(p.coords.latitude,p.coords.longitude,p.coords.accuracy)},
+      function(e){
+        var m=e.code===1?"permission denied or blocked by this page's sandbox":e.code===2?"position unavailable":"timed out";
+        $("#gps").innerHTML='GPS: <b class="warn">'+m+'</b>. Manual mode: use ▶ / ⏭ and the Directions links, or turn on Simulate to test.';
+      },{enableHighAccuracy:true,maximumAge:5000,timeout:25000});
+  }catch(e){$("#gps").innerHTML='GPS: <b class="warn">blocked</b> — manual mode.'}
+}
+
+/* ---------- keep-alive & wake lock ---------- */
+function silence(){
+  var sr=8000,n=sr,b=new ArrayBuffer(44+n),v=new DataView(b);
+  function w(o,s){for(var i=0;i<s.length;i++)v.setUint8(o+i,s.charCodeAt(i))}
+  w(0,"RIFF");v.setUint32(4,36+n,true);w(8,"WAVEfmt ");v.setUint32(16,16,true);v.setUint16(20,1,true);v.setUint16(22,1,true);
+  v.setUint32(24,sr,true);v.setUint32(28,sr,true);v.setUint16(32,1,true);v.setUint16(34,8,true);w(36,"data");v.setUint32(40,n,true);
+  for(var i=0;i<n;i++)v.setUint8(44+i,128);
+  return URL.createObjectURL(new Blob([b],{type:"audio/wav"}));
+}
+async function setWake(){
+  try{
+    if($("#wakeTg").checked){
+      if("wakeLock" in navigator){wake=await navigator.wakeLock.request("screen");$("#keep").innerHTML='Screen: <b class="ok">kept awake</b>';wake.addEventListener("release",function(){wake=null})}
+      else $("#keep").innerHTML='Screen: <b class="warn">wake lock unsupported</b> — keep the screen on manually.';
+    }else{if(wake)wake.release();wake=null;$("#keep").textContent=""}
+  }catch(e){$("#keep").innerHTML='Screen: <b class="warn">wake lock refused</b> — set Auto-Lock to Never while touring.'}
+}
+function setAlive(){
+  if($("#aliveTg").checked&&started){if(!keepEl){keepEl=new Audio(silence());keepEl.loop=true;keepEl.volume=0.02}keepEl.play().catch(function(){})}
+  else if(keepEl)keepEl.pause();
+}
+document.addEventListener("visibilitychange",function(){if(document.visibilityState==="visible"&&started){setWake();if(lastFix&&Date.now()-lastFix>60000)toast("GPS paused while the screen was off")}});
+
+/* ---------- ui wiring ---------- */
+$("#startBtn").onclick=function(){
+  started=true;$("#startBtn").textContent="✓ Tour running";$("#startBtn").disabled=true;
+  try{var u=new SpeechSynthesisUtterance(" ");u.volume=0;speechSynthesis.speak(u)}catch(e){}
+  setWake();setAlive();startGPS();
+};
+$("#preBtn").onclick=async function(){
+  var b=$("#preBtn");b.disabled=true;var n=0;
+  for(var i=0;i<all.length;i++){
+    b.textContent="Loading "+(i+1)+"/"+all.length+"…";
+    try{var r=await fetch(all[i].audio);blobUrls[all[i].id]=URL.createObjectURL(await r.blob());n++}catch(e){}
+  }
+  b.textContent=n===all.length?"✓ Audio loaded for this session":"Preload incomplete ("+n+"/"+all.length+")";b.disabled=n===all.length;
+};
+$("#resetBtn").onclick=function(){visited={};saveV();stopAll();playingId=null;renderAll()};
+$("#modeSeg").addEventListener("click",function(e){var m=e.target.getAttribute("data-m");if(!m)return;mode=m;
+  [].forEach.call(this.children,function(b){b.classList.toggle("on",b.getAttribute("data-m")===m)});
+  $("#ttsOpts").style.display=m==="tts"?"block":"none";
+  if(playingId){var c=idxById(playingId);play(c)}});
+$("#rate").oninput=function(){$("#rateV").textContent=parseFloat(this.value).toFixed(2).replace(/0$/,"")+"×"};
+$("#wakeTg").onchange=setWake;$("#aliveTg").onchange=setAlive;
+$("#simTg").onchange=function(){if(this.checked){$("#gps").innerHTML='GPS: <b class="warn">simulation on</b> — go to the Map and tap to move.';$("#tMap").click();started=true}};
+$("#tList").onclick=function(){$("#list").style.display="";$("#mapWrap").style.display="none";$("#tList").classList.add("on");$("#tMap").classList.remove("on")};
+$("#tMap").onclick=function(){$("#list").style.display="none";$("#mapWrap").style.display="";$("#tMap").classList.add("on");$("#tList").classList.remove("on");drawLeaflet.fit=null;renderMap()};
+$("#chips").addEventListener("click",function(e){var v=e.target.getAttribute("data-v");if(v===null)return;view=v;renderChips();renderList();renderMap();window.scrollTo(0,$("#chips").offsetTop-8)});
+$("#meBtn").onclick=function(){
+  if(zoomMe){zoomMe=false;renderMap();return}
+  function go(){zoomMe=true;renderMap()}
+  if(pos){go();return}
+  if(!navigator.geolocation){toast("No GPS here — turn on Simulate and tap the map");return}
+  navigator.geolocation.getCurrentPosition(function(p){onPos(p.coords.latitude,p.coords.longitude,p.coords.accuracy);go()},
+    function(){toast("Location is blocked in this page — use Simulate, or the Street/Satellite buttons")},{enableHighAccuracy:true,timeout:15000});
+};
+var LM=null,mk=null,tl={},tileOk=0,tileBad=0;
+function initLeaflet(){
+  if(LM||!window.L)return;
+  try{
+    $("#lmap").style.display="block";$("#svg").style.display="none";
+    LM=L.map("lmap").setView([35.0,135.77],12);
+    tl.street=L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"© OpenStreetMap contributors"});
+    tl.sat=L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",{maxZoom:19,attribution:"Imagery © Esri, Maxar, Earthstar Geographics"});
+    Object.keys(tl).forEach(function(k){tl[k].on("tileload",function(){tileOk++});tl[k].on("tileerror",function(){tileBad++;
+      if(tileBad>6&&!tileOk){$("#lmap").style.display="none";$("#svg").style.display="";toast("Map tiles blocked — showing schematic map")}})});
+    tl.street.addTo(LM);mk=L.layerGroup().addTo(LM);
+    LM.on("click",function(e){if($("#simTg").checked)onPos(e.latlng.lat,e.latlng.lng,10,true)});
+    $("#mapbox .status").textContent="Map © OpenStreetMap contributors; satellite imagery © Esri. Faint circles show each stop's auto-play radius; tap a pin to play it.";
+    $("#lnStreet").onclick=function(e){e.preventDefault();LM.removeLayer(tl.sat);tl.street.addTo(LM)};
+    $("#lnSat").onclick=function(e){e.preventDefault();LM.removeLayer(tl.street);tl.sat.addTo(LM)};
+    $("#lnStreet").firstChild.textContent="Street";$("#lnSat").firstChild.textContent="Satellite";
+  }catch(e){LM=null;$("#lmap").style.display="none";$("#svg").style.display=""}
+}
+function drawLeaflet(vis){
+  LM.invalidateSize();mk.clearLayers();var b=[];
+  vis.forEach(function(s){
+    var col=visited[s.id]?"#2f7d4f":s.color;b.push([s.lat,s.lng]);
+    L.circle([s.lat,s.lng],{radius:s.radius,color:col,weight:1,fillOpacity:.12}).addTo(mk);
+    L.marker([s.lat,s.lng],{icon:L.divIcon({className:"",html:'<span class="num" style="background:'+col+';margin:0;box-shadow:0 0 0 2px #fff">'+s.label+'</span>',iconSize:[30,22],iconAnchor:[15,11]})})
+      .bindTooltip(s.name).on("click",function(){play(idxById(s.id))}).addTo(mk);
+  });
+  if(pos)L.circleMarker([pos.lat,pos.lng],{radius:8,color:"#fff",weight:3,fillColor:"#1a73e8",fillOpacity:1}).addTo(mk);
+  var key=view+"|"+zoomMe;
+  if(zoomMe&&pos)LM.setView([pos.lat,pos.lng],18);
+  else if(b.length&&drawLeaflet.fit!==key)LM.fitBounds(b,{padding:[24,24],maxZoom:17});
+  drawLeaflet.fit=key;
+}
+$("#ppB").onclick=pauseResume;$("#nextB").onclick=function(){step(1)};$("#prevB").onclick=function(){step(-1)};
+document.addEventListener("click",function(e){
+  var p=e.target.closest("[data-play]"),v=e.target.closest("[data-vis]");
+  if(p){var i=+p.getAttribute("data-play");if(playingId===all[i].id)pauseResume();else play(i)}
+  if(v){var j=+v.getAttribute("data-vis");visited[all[j].id]=!visited[all[j].id];saveV();renderAll()}
+});
+function loadVoices(){
+  if(!window.speechSynthesis)return;
+  var vs=speechSynthesis.getVoices().filter(function(v){return /^en/i.test(v.lang)});
+  $("#voiceSel").innerHTML=vs.map(function(v){return '<option value="'+esc(v.voiceURI)+'">'+esc(v.name)+" ("+v.lang+")</option>"}).join("")||'<option value="">Default voice</option>';
+}
+if(window.speechSynthesis){speechSynthesis.onvoiceschanged=loadVoices;loadVoices()}
+})();
+</script>
+</body>
+</html>
