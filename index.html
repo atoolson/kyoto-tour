@@ -136,9 +136,12 @@ function dirLink(s){return "https://www.google.com/maps/dir/?api=1&destination="
 
 /* ---------- data ---------- */
 var TOURS={kyoto:{name:"Kyoto · Day Two",file:"stops.json",mins:"~1 min"},nara:{name:"Nara Park",file:"nara.json",mins:"~1.5 min"}};
-var tourId="kyoto";try{var t0=localStorage.getItem("tour_sel");if(TOURS[t0])tourId=t0}catch(e){}
+var QS=new URLSearchParams(location.search),tourId="kyoto",curView="list",restoring=false;
+try{var t0=localStorage.getItem("tour_sel");if(TOURS[t0])tourId=t0}catch(e){}
+if(TOURS[QS.get("tour")])tourId=QS.get("tour");
+function syncUrl(){try{var p=new URLSearchParams(location.search);p.set("tour",tourId);p.set("view",curView);history.replaceState(null,"",location.pathname+"?"+p.toString()+location.hash)}catch(e){}}
 function loadTour(id){
-  tourId=id;try{localStorage.setItem("tour_sel",id)}catch(e){}
+  tourId=id;try{localStorage.setItem("tour_sel",id)}catch(e){}syncUrl();
   stopAll();playingId=null;paused=false;view="all";zoomMe=false;
   [].forEach.call($("#tourSeg").children,function(b){b.classList.toggle("on",b.getAttribute("data-t")===id)});
   $("#tourTitle").textContent=TOURS[id].name;document.title=TOURS[id].name+" Audio Tour";
@@ -153,6 +156,7 @@ function loadTour(id){
 }
 $("#tourSeg").addEventListener("click",function(e){var t=e.target.getAttribute("data-t");if(t&&t!==tourId)loadTour(t)});
 loadTour(tourId);
+if(QS.get("view")==="map"){restoring=true;$("#tMap").click();restoring=false}
 
 /* ---------- render ---------- */
 function idxById(id){for(var i=0;i<all.length;i++)if(all[i].id===id)return i;return -1}
@@ -366,8 +370,8 @@ $("#modeSeg").addEventListener("click",function(e){var m=e.target.getAttribute("
 $("#rate").oninput=function(){$("#rateV").textContent=parseFloat(this.value).toFixed(2).replace(/0$/,"")+"×"};
 $("#wakeTg").onchange=setWake;$("#aliveTg").onchange=setAlive;
 $("#simTg").onchange=function(){if(this.checked){$("#gps").innerHTML='GPS: <b class="warn">simulation on</b> — go to the Map and tap to move.';$("#tMap").click();started=true}};
-$("#tList").onclick=function(){$("#list").style.display="";$("#mapWrap").style.display="none";$("#tList").classList.add("on");$("#tMap").classList.remove("on")};
-$("#tMap").onclick=function(){$("#list").style.display="none";$("#mapWrap").style.display="";$("#tMap").classList.add("on");$("#tList").classList.remove("on");drawLeaflet.fit=null;if(!watchId&&!$("#simTg").checked&&navigator.geolocation)startGPS();renderMap()};
+$("#tList").onclick=function(){curView="list";syncUrl();$("#list").style.display="";$("#mapWrap").style.display="none";$("#tList").classList.add("on");$("#tMap").classList.remove("on")};
+$("#tMap").onclick=function(){curView="map";syncUrl();$("#list").style.display="none";$("#mapWrap").style.display="";$("#tMap").classList.add("on");$("#tList").classList.remove("on");drawLeaflet.fit=null;if(!restoring&&!watchId&&!$("#simTg").checked&&navigator.geolocation)startGPS();renderMap()};
 $("#chips").addEventListener("click",function(e){var v=e.target.getAttribute("data-v");if(v===null)return;view=v;renderChips();renderList();renderMap();window.scrollTo(0,$("#chips").offsetTop-8)});
 $("#meBtn").onclick=function(){
   if(zoomMe){zoomMe=false;renderMap();return}
