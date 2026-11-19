@@ -156,7 +156,6 @@ function loadTour(id){
 }
 $("#tourSeg").addEventListener("click",function(e){var t=e.target.getAttribute("data-t");if(t&&t!==tourId)loadTour(t)});
 loadTour(tourId);
-if(QS.get("view")==="map"){restoring=true;$("#tMap").click();restoring=false}
 
 /* ---------- render ---------- */
 function idxById(id){for(var i=0;i<all.length;i++)if(all[i].id===id)return i;return -1}
@@ -437,6 +436,7 @@ function loadVoices(){
   $("#voiceSel").innerHTML=vs.map(function(v){return '<option value="'+esc(v.voiceURI)+'">'+esc(v.name)+" ("+v.lang+")</option>"}).join("")||'<option value="">Default voice</option>';
 }
 if(window.speechSynthesis){speechSynthesis.onvoiceschanged=loadVoices;loadVoices()}
+if(QS.get("view")==="map"){restoring=true;$("#tMap").click();restoring=false}
 })();
 </script>
 </body>
