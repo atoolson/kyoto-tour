@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Kyoto Day Two Audio Tour</title>
+<title>Japan Audio Tours</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
@@ -70,7 +70,8 @@ select,input[type=range]{font:inherit;max-width:100%}
 <body>
 <div class="wrap">
 <header>
-  <h1>Kyoto · Day Two</h1>
+  <h1 id="tourTitle">Japan Audio Tours</h1>
+  <div class="seg" id="tourSeg" style="margin-top:8px"><button data-t="kyoto" class="on">Kyoto</button><button data-t="nara">Nara Park</button></div>
   <div class="sub" id="hsub">Geo-fenced audio tour · ~1 min per stop</div>
 </header>
 
@@ -134,12 +135,24 @@ function fmt(m){return m<1000?Math.round(m/10)*10+" m":(m/1000).toFixed(1)+" km"
 function dirLink(s){return "https://www.google.com/maps/dir/?api=1&destination="+s.lat+","+s.lng+"&travelmode=walking"}
 
 /* ---------- data ---------- */
-fetch("stops.json").then(function(r){return r.json()}).then(function(d){
+var TOURS={kyoto:{name:"Kyoto · Day Two",file:"stops.json",mins:"~1 min"},nara:{name:"Nara Park",file:"nara.json",mins:"~2 min"}};
+var tourId="kyoto";try{var t0=localStorage.getItem("tour_sel");if(TOURS[t0])tourId=t0}catch(e){}
+function loadTour(id){
+  tourId=id;try{localStorage.setItem("tour_sel",id)}catch(e){}
+  stopAll();playingId=null;paused=false;view="all";zoomMe=false;
+  [].forEach.call($("#tourSeg").children,function(b){b.classList.toggle("on",b.getAttribute("data-t")===id)});
+  $("#tourTitle").textContent=TOURS[id].name;document.title=TOURS[id].name+" Audio Tour";
+  $("#preBtn").textContent="Preload audio";$("#preBtn").disabled=false;$("#pBar").style.width="0";
+  if(typeof drawLeaflet!=="undefined")drawLeaflet.fit=null;
+  fetch(TOURS[id].file).then(function(r){return r.json()}).then(function(d){
   groups=d;all=[];
   groups.forEach(function(g,gi){g.stops.forEach(function(s,si){s.gi=gi;s.si=si;s.color=COLORS[gi%COLORS.length];s.label=(gi+1)+"."+(si+1);all.push(s)})});
-  $("#hsub").textContent="Geo-fenced audio tour · "+groups.length+" places · "+all.length+" stops · ~1 min each";
+  $("#hsub").textContent="Geo-fenced audio tour · "+groups.length+" areas · "+all.length+" stops · "+TOURS[id].mins+" each";
   renderChips();renderAll();$("#pSub").textContent="Tap ▶ to play the first stop";
-}).catch(function(){$("#list").innerHTML='<div class="panel warn">Could not load stops.</div>'});
+  }).catch(function(){$("#list").innerHTML='<div class="panel warn">Could not load stops.</div>'});
+}
+$("#tourSeg").addEventListener("click",function(e){var t=e.target.getAttribute("data-t");if(t&&t!==tourId)loadTour(t)});
+loadTour(tourId);
 
 /* ---------- render ---------- */
 function idxById(id){for(var i=0;i<all.length;i++)if(all[i].id===id)return i;return -1}
@@ -274,7 +287,7 @@ function pauseResume(){
 }
 function media(s){
   if(!("mediaSession" in navigator))return;
-  try{navigator.mediaSession.metadata=new MediaMetadata({title:s.name,artist:groups[s.gi].name,album:"Kyoto Day Two"});
+  try{navigator.mediaSession.metadata=new MediaMetadata({title:s.name,artist:groups[s.gi].name,album:TOURS[tourId].name});
   navigator.mediaSession.setActionHandler("play",pauseResume);navigator.mediaSession.setActionHandler("pause",pauseResume);
   navigator.mediaSession.setActionHandler("nexttrack",function(){step(1)});navigator.mediaSession.setActionHandler("previoustrack",function(){step(-1)})}catch(e){}
 }
@@ -345,7 +358,7 @@ $("#preBtn").onclick=async function(){
   }
   b.textContent=n===all.length?"✓ Audio loaded for this session":"Preload incomplete ("+n+"/"+all.length+")";b.disabled=n===all.length;
 };
-$("#resetBtn").onclick=function(){visited={};saveV();stopAll();playingId=null;renderAll()};
+$("#resetBtn").onclick=function(){all.forEach(function(s){delete visited[s.id]});saveV();stopAll();playingId=null;renderAll()};
 $("#modeSeg").addEventListener("click",function(e){var m=e.target.getAttribute("data-m");if(!m)return;mode=m;
   [].forEach.call(this.children,function(b){b.classList.toggle("on",b.getAttribute("data-m")===m)});
   $("#ttsOpts").style.display=m==="tts"?"block":"none";

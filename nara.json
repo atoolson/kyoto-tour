@@ -1,0 +1,273 @@
+[
+ {
+  "id": "kofukuji",
+  "name": "Kofuku-ji & Sarusawa Pond",
+  "jp": "興福寺・猿沢池",
+  "time": "~25 min",
+  "tip": "Start near Kintetsu Nara Station (about a 5-minute walk). The five-story pagoda is under repair cover until 2034.",
+  "stops": [
+   {
+    "id": "nara-sarusawa",
+    "name": "Sarusawa Pond",
+    "lat": 34.68129,
+    "lng": 135.83079,
+    "radius": 50,
+    "sources": [
+     "Nara City Tourism Association (narashikanko.or.jp)",
+     "Gotokyo / Japan Experience: Sarusawa Pond",
+     "Wikipedia: Kofuku-ji"
+    ],
+    "text": "Welcome to Nara. You are standing at Sarusawa Pond, a man-made pond about three hundred sixty meters around. It was dug in the year seven forty-nine as part of the grounds of Kofuku-ji temple, and the temple still treats it as a release pond. Each April a Buddhist ceremony frees captured creatures into its water. The pond's most famous view is the five-story pagoda reflected on the surface, together with the weeping willows, a scene counted among the Eight Views of Nara since the Muromachi period. Right now that view is different, because the pagoda is wrapped in repair scaffolding. We will come back to that in a moment. The pond is full of legends. One tells of a court lady, an uneme, who lost the emperor's favor and drowned herself here. Uneme Shrine on the bank is said to have been built to comfort her spirit, and the story goes that the shrine turned its back to the water overnight, unable to look at the place where she died. Every autumn, on the night of the harvest moon, a festival honors her with a procession and a dragon-shaped boat on the pond. Locals also speak of the seven mysteries of Sarusawa. The water is never clear, for example, and no matter how many fish are released, it never becomes crowded. Look for koi and turtles in the water, and probably a deer resting nearby. Take a minute to sit and breathe. You are about to walk into a very large park, and the deer are only the beginning.",
+    "audio": "audio/nara-sarusawa.mp3"
+   },
+   {
+    "id": "nara-pagoda",
+    "name": "Kofuku-ji Five-Story Pagoda",
+    "lat": 34.68247,
+    "lng": 135.83224,
+    "radius": 45,
+    "sources": [
+     "Wikipedia: Kofuku-ji",
+     "japan-guide.com construction notices",
+     "News On Japan (Yomiuri): Kofuku-ji pagoda repairs",
+     "MLIT multilingual database: Five-story Pagoda",
+     "Nara City Tourism Association"
+    ],
+    "text": "Ahead of you is the five-story pagoda of Kofuku-ji, a National Treasure. The first pagoda on this spot was commissioned in the year seven thirty by Empress Komyo, the daughter of Fujiwara no Fuhito, who was the temple's great patron. Fires destroyed it several times, and the pagoda standing today dates from fourteen twenty-six. At about fifty meters, or one hundred sixty-four feet, it is the second tallest wooden pagoda in Japan, after the one at To-ji in Kyoto. Don't be surprised if you can barely see it. The pagoda is in its first major restoration in about one hundred twenty years. A protective temporary roof went up in twenty twenty-three, and the work now includes removing and examining roughly sixty thousand roof tiles to see which can be reused. The project is scheduled to finish in March of twenty thirty-four, so for now what you see is mostly scaffolding and cover. The temple itself has a long story. It was founded in the year six sixty-nine near present-day Kyoto by the wife of Fujiwara no Kamatari, who was praying for her husband's recovery. It moved in six seventy-two, and again in seven ten, when the imperial capital moved to Nara. From then on it was the family temple of the Fujiwara, the most powerful clan of the age, and it prospered as they did. Beside the pagoda stands a three-story pagoda from eleven eighty-five, also a National Treasure, and that one you can see clearly.",
+    "audio": "audio/nara-pagoda.mp3"
+   },
+   {
+    "id": "nara-chukondo",
+    "name": "Kofuku-ji Central Golden Hall",
+    "lat": 34.68326,
+    "lng": 135.83117,
+    "radius": 40,
+    "sources": [
+     "Wikipedia: Kofuku-ji",
+     "Japan Visitor: Yoshikien Garden (history of Manishuin)",
+     "Google Places visitor notes (interior photography)"
+    ],
+    "text": "Before you leave Kofuku-ji, take in the Central Golden Hall, the Chukondo. This was the heart of the original temple, and over the centuries it burned and was rebuilt again and again. The hall you see now was completed in twenty eighteen, rebuilt in the style of its earlier form, and its bright vermilion color and big proportions give you a hint of how the temple looked at its height. Nearby is the Eastern Golden Hall, which dates from fourteen twenty-five and is a National Treasure. In the temple's treasure museum, the best-loved figure is Ashura, a dry-lacquer statue of a youthful guardian with three faces and six arms and a famously anxious expression. It is a National Treasure and one of the best-known Buddhist sculptures in Japan. The interiors here are ticketed separately, and photography inside is not allowed, so decide how much of it you want to go inside. The temple's fortunes also say something about Nara. In the early Meiji era, the new government pushed to separate Shinto from Buddhism and anti-Buddhist feeling ran high. Kofuku-ji lost land and buildings, and some of its former grounds became private gardens, including the one we will visit a little later today, Yoshikien. Nara itself was the capital from seven ten until seven eighty-four. Then power drifted away to Kyoto, but the great temples and shrines stayed behind, and that is why this city feels like an open-air museum. Next, head east into Nara Park along the main path.",
+    "audio": "audio/nara-chukondo.mp3"
+   }
+  ]
+ },
+ {
+  "id": "park",
+  "name": "Nara Park & Museum Quarter",
+  "jp": "奈良公園",
+  "time": "~25 min",
+  "tip": "Deer are in rut season in autumn: keep a respectful distance from stags, and unwrap crackers away from crowds. The museum is closed Mondays.",
+  "stops": [
+   {
+    "id": "nara-torii",
+    "name": "First Torii & the Sacred Deer",
+    "lat": 34.6821,
+    "lng": 135.83485,
+    "radius": 55,
+    "sources": [
+     "Wikipedia: Nara Park",
+     "Nara City Tourism Association: Deer",
+     "Kyushu University paper on deer conservation in Nara",
+     "Japan News / News On Japan: antler cutting"
+    ],
+    "text": "You have reached Nara Park, and probably a few deer. This vermilion gate is the first torii of Kasuga Grand Shrine, and it marks the start of the long approach that climbs east toward the shrine in the forested hills. The park was established in eighteen eighty and covers about five hundred hectares, or around six hundred sixty if you count the temples and shrines inside it. More than twelve hundred wild sika deer live here, and the count reached a record of about fourteen hundred sixty-five in twenty twenty-five. Why here? Legend says that in the year seven sixty-eight the god Takemikazuchi, one of Kasuga's four deities, rode to Nara on a white deer from Kashima Shrine far to the east. Ever since, deer have been sacred messengers of the gods. Killing one was a capital crime until sixteen thirty-seven. After the Second World War, the deer lost their sacred legal status and became protected as a natural monument. A twenty twenty-three study found that they form a distinct genetic lineage that split from other deer about fourteen hundred years ago, which the researchers link to centuries of protection. A few practical tips. The crackers, called shika senbei, are sold at stalls along the paths and made from wheat flour and rice bran; feed the deer only those. Many deer bow, which they learned is a good way to ask. Hold the cracker, wait for the bow, then hand it over. Unwrap crackers away from crowds, and when you are out, show your empty open palms. Keep maps and paper in your bag, because deer will eat them. In autumn the stags are in their mating season and can be pushy, so give them space.",
+    "audio": "audio/nara-torii.mp3"
+   },
+   {
+    "id": "nara-museum",
+    "name": "Nara National Museum",
+    "lat": 34.68313,
+    "lng": 135.83831,
+    "radius": 55,
+    "sources": [
+     "Wikipedia: Nara National Museum",
+     "Google Places listing (hours)"
+    ],
+    "text": "The elegant building in front of you is the original home of the Nara National Museum, one of Japan's leading museums of Buddhist art. It was established in eighteen eighty-nine as the Imperial Museum of Nara, and its first exhibition opened in eighteen ninety-five. The building, completed in eighteen ninety-four and designed by Katayama Tokuma, is in a French Renaissance style that was fashionable in Meiji Japan, and it has been designated an Important Cultural Property since nineteen sixty-nine. Inside you would find Buddhist sculpture, paintings, scrolls and altar objects, many of them lent by the temples and shrines of the Nara region, which tells you something about the museum's mission: it is a place to see sacred works up close that are normally kept behind temple doors. Two newer wings were added later. The West Wing, by the architect Junzo Yoshimura, opened in nineteen seventy-two, and the East Wing followed in the late nineteen nineties, linked to the old building by an underground passage of about one hundred fifty meters. Each autumn, the museum is also the venue for the famous exhibition of treasures from the Shosoin, the imperial storehouse beside Todai-ji, so if you are here in the weeks around now, check whether it is on, since it draws large crowds. The museum is closed on Mondays. Even if you do not go in, the exterior is one of the most photographed buildings in the park, and you are free to enjoy it from the lawn. Next we head north to a quiet garden, then on to Todai-ji.",
+    "audio": "audio/nara-museum.mp3"
+   },
+   {
+    "id": "nara-yoshikien",
+    "name": "Yoshikien Garden",
+    "lat": 34.68548,
+    "lng": 135.83631,
+    "radius": 45,
+    "sources": [
+     "Wikipedia: Yoshiki-en",
+     "Japan Visitor: Yoshikien Garden",
+     "fun-japan.jp: Yoshikien",
+     "japan-guide.com: Yoshikien"
+    ],
+    "text": "This unassuming gate leads to Yoshikien, a small garden that many visitors walk right past. The land was once occupied by Manishuin, a branch temple of Kofuku-ji, and during the anti-Buddhist turmoil at the start of the Meiji period it passed into private hands. The residence and gardens you see were laid out in nineteen nineteen, and the property later passed to the public, opening for visits in nineteen eighty-nine. There are three gardens in about nine thousand square meters. The pond garden is a strolling garden with a small hill where you can look out toward Mount Kasuga and Mount Wakakusa, borrowing the hills as part of the scenery. The moss garden has a thatched tea house and a carpet of fine moss, lovely in any season and especially so when autumn leaves float down onto it. And the tea garden grows flowers and plants chosen for tea ceremonies. Entry is free for foreign visitors, with proof you are a visitor, so bring your passport. It is quiet here, which makes it a good place to put the deer-crowd noise behind you. If you have ten or fifteen minutes, wander in, sit in one of the small gazebos and enjoy the view across the pond. This is also late November, when the maples are at their best. When you are ready, continue north toward the great south gate of Todai-ji.",
+    "audio": "audio/nara-yoshikien.mp3"
+   }
+  ]
+ },
+ {
+  "id": "todaiji",
+  "name": "Todai-ji Temple",
+  "jp": "東大寺",
+  "time": "~60 min",
+  "tip": "Todai-ji's Daibutsuden is open 7:30–5:30. Allow time inside the hall; photography rules vary by building.",
+  "stops": [
+   {
+    "id": "nara-nandaimon",
+    "name": "Nandaimon (Great South Gate)",
+    "lat": 34.68581,
+    "lng": 135.83988,
+    "radius": 50,
+    "sources": [
+     "Wikipedia: Todai-ji",
+     "Britannica: Todai Temple",
+     "Google Places visitor notes"
+    ],
+    "text": "This is the Nandaimon, the Great South Gate of Todai-ji, and you are standing at the threshold of one of the most important temples in Japan. The gate you see today dates from the end of the twelfth century. Todai-ji suffered major damage in eleven eighty, and the monk Chogen led a huge fundraising effort to rebuild it, and this gate belongs to that revival. It is a vast wooden structure, with enormous pillars, and a double-tiered roof that makes you feel small. Look up between the pillars and you will find two giant guardian figures, the Nio. Each is about eight and a half meters tall. They were carved by the celebrated sculptors Unkei and Kaikei, together with their workshop, in the Kamakura period. One has his mouth open and the other has it closed, a pairing that symbolizes the first and last sounds of the alphabet, meaning beginning and end. Their muscles, their fierce expressions and the flow of their robes make them a masterpiece of realistic sculpture. Their job is to protect the temple from evil, so take a moment to meet their gaze. The gate and the guardians are also deeply associated with deer, since the lawns around here are some of the most popular places in the park to meet them. Keep your food out of sight. Walk through the gate and straight ahead the central avenue leads toward the main hall, with a pond just off to the right.",
+    "audio": "audio/nara-nandaimon.mp3"
+   },
+   {
+    "id": "nara-kagami",
+    "name": "Kagami-ike Pond & Todai-ji's Founding",
+    "lat": 34.68742,
+    "lng": 135.84055,
+    "radius": 45,
+    "sources": [
+     "Wikipedia: Todai-ji",
+     "Japan National Tourism Organization: Todai-ji",
+     "World History Encyclopedia: Todaiji",
+     "Google Places visitor notes"
+    ],
+    "text": "You are beside Kagami-ike, the Mirror Pond, in front of the Great Buddha Hall. It is a calm spot, with a small waterfall at the east end and some of the best autumn color on the grounds. It is also a good place to understand why Todai-ji exists. In the eighth century Japan's rulers were adopting Buddhism as a force that could unite and protect the state. Emperor Shomu, who reigned during a time of epidemics, famine and political unrest, decided on an enormous project. In seven forty-three he ordered a giant statue of the cosmic Buddha. Work began in Shigaraki and moved to Nara in seven forty-five, and the statue was completed in seven fifty-one. The ceremony to open its eyes in seven fifty-two reportedly drew ten thousand monks and four thousand dancers. It is said that about two point six million people contributed labor or materials, and the cost consumed much of Japan's bronze and imported gold, nearly bankrupting the state. The temple was never meant to be small. Its name means Great Eastern Temple, and it became the head temple of the Kegon school of Buddhism and the center of a network of provincial temples across the country. Over the centuries it was damaged by fire and war, and rebuilt more than once. When you walk the last stretch toward the hall, imagine the original complex, which also had two giant seven-story pagodas flanking it. Today only the hall and its Buddha remain at the heart of it.",
+    "audio": "audio/nara-kagami.mp3"
+   },
+   {
+    "id": "nara-daibutsuden",
+    "name": "Daibutsuden (Great Buddha Hall)",
+    "lat": 34.68887,
+    "lng": 135.83982,
+    "radius": 50,
+    "sources": [
+     "Todai-ji official site",
+     "Web Japan: Japan Atlas Historic Sites",
+     "Wikipedia: Todai-ji",
+     "Britannica: Todai Temple",
+     "Tokyo Metropolitan Govt (Edo Legacy)"
+    ],
+    "text": "In front of you is the Daibutsuden, the Great Buddha Hall, and it is huge. It measures about fifty-seven meters wide, fifty meters deep and forty-nine meters high, and it is still described as the largest wooden building in the world. And here is the surprise. What you see today is only about two thirds as wide as the original. The first hall, completed in the eighth century, was eleven bays wide. The hall burned in eleven eighty in a war, was rebuilt, and burned again in fifteen sixty-seven. The present hall was finished in seventeen oh nine, and because money was short, it was built with only seven bays across. Even so, its height and depth match the original. By the early twentieth century the structure was in trouble, and it was repaired with steel framing in a restoration that ran from nineteen seventy-four to nineteen eighty. Look at the roof. The great golden ornaments at its ends, called shibi, are a signature of the building. In front of the hall stands a bronze octagonal lantern, which dates back to the eighth century and still shows fine relief carvings, including musicians and lions. The hall itself is a National Treasure. Take a moment to walk along the front, then go inside and prepare to be impressed. Inside, you will feel that the building seems small compared with the statue it shelters.",
+    "audio": "audio/nara-daibutsuden.mp3"
+   },
+   {
+    "id": "nara-daibutsu",
+    "name": "The Great Buddha (Daibutsu)",
+    "lat": 34.68887,
+    "lng": 135.83982,
+    "radius": 30,
+    "sources": [
+     "Wikipedia: Todai-ji",
+     "Japan National Tourism Organization: Todai-ji",
+     "Lonely Planet: Todai-ji",
+     "Frommer's: Todaiji Temple",
+     "JPS (Japan Search): Todai-ji pillar"
+    ],
+    "text": "Now you are in the presence of the Daibutsu, the Great Buddha. This is Vairocana, the cosmic Buddha, whose light of wisdom is said to illuminate the whole world. The statue is just under fifteen meters tall and weighs about five hundred tonnes. It was cast in bronze in eight sections over three years, and it is the largest such image in Japan. The scale of the details is as striking as the height. Each ear is about two and a half meters long. The figure is seated on a huge lotus pedestal, whose bronze petals still show engravings from the eighth century. The Buddha you see has been damaged and repaired more than once. In wars and fires, the head melted and fell, and the current head was recast in sixteen ninety-two. The hands and part of the body date to the Edo period too. So the statue is a blend of eras, yet its presence still feels timeless. On either side sit attendant figures, and around the statue stand guardians, all of them worth a look. Behind the Buddha, toward the back, look for a model of the original hall with its two tall pagodas. And near the back on the right, a wooden pillar has a small hole at the base, said to be the size of the Buddha's nostril. Tradition says that if you pass through, you will be enlightened in your next life. Children and adventurous adults squeeze through, so you may see a line.",
+    "audio": "audio/nara-daibutsu.mp3"
+   },
+   {
+    "id": "nara-sangatsudo",
+    "name": "Sangatsu-do (Hokke-do)",
+    "lat": 34.68876,
+    "lng": 135.84404,
+    "radius": 40,
+    "sources": [
+     "Wikipedia: Todai-ji",
+     "nippon.com: Fukukensaku Kannon",
+     "Ancient-history-sites.com: Hokke-do",
+     "Wikipedia: List of Cultural Properties of Todai-ji",
+     "Google Places visitor notes"
+    ],
+    "text": "You have climbed a short slope away from the crowds to Sangatsu-do, the March Hall, also known as the Hokke-do or Lotus Hall. It is the oldest building in the Todai-ji complex, a National Treasure dating from the eighth century, and it predates the Great Buddha itself. The name is said to come from a lotus-sutra ceremony traditionally held in the third lunar month, which is where the March in its name comes from. The hall has a very particular look. The front part is in a later style, added in the Kamakura period, and the older part behind it keeps the calm lines of the Nara era. Inside is the temple's greatest sculpture collection. The principal image is the Fukukensaku Kannon, the Kannon of the Never-Empty Lasso, who catches all beings with a rope of compassion. Around it stand a ring of statues from the eighth century, including the guardians Bonten and Taishakuten, and guardian kings. Many are made in the technique known as hollow dry lacquer, where hemp cloth soaked in lacquer was layered over a clay core, then the clay was removed. That produced figures that are strong, light and extraordinarily expressive. Entry to the interior is ticketed, with a limited opening time, and photography is not allowed. If you decide to skip going in, you can still admire the building from the outside. It is worth it for the calm of this corner of the temple alone, and for the view back toward the town.",
+    "audio": "audio/nara-sangatsudo.mp3"
+   },
+   {
+    "id": "nara-nigatsudo",
+    "name": "Nigatsu-do Hall",
+    "lat": 34.68927,
+    "lng": 135.84424,
+    "radius": 40,
+    "sources": [
+     "Wikipedia: Todai-ji",
+     "Cultural Japan: Nigatsudo",
+     "Google Places visitor notes",
+     "Wikipedia (Chise mirror): Todai-ji and Shuni-e"
+    ],
+    "text": "Climb the last stone steps and you arrive at Nigatsu-do, the Second Month Hall. Its broad wooden veranda hangs out over the hillside, and the view from it is one of the best in Nara. You look out over the roofs of Todai-ji and the plain beyond, and it is especially lovely near sunset. The present hall dates from the seventeenth century and is a National Treasure. Nigatsu-do is the stage of one of Japan's oldest and most dramatic rituals, called Shuni-e, and also known as Omizutori, the water-drawing ceremony. According to tradition it was founded by the monk Jitchu in the middle of the eighth century and has been repeated every year since. The main rites run from the first to the fourteenth of March, and the best known scene is when the monks carry enormous burning torches along the veranda, showering the crowd below with sparks. In Japan the sparks are considered good luck, and people try to catch a burning ember to take home as a charm. Even outside the festival, Nigatsu-do feels sacred. Notice the rows of lanterns hanging from the eaves, and the long approach with stone steps. This is also the end of the climb, so enjoy the view back over the city. Next, only a short walk away, is the Tamukeyama shrine, just below, where a very different part of Todai-ji's story is told.",
+    "audio": "audio/nara-nigatsudo.mp3"
+   },
+   {
+    "id": "nara-tamukeyama",
+    "name": "Tamukeyama Hachimangu Shrine",
+    "lat": 34.68794,
+    "lng": 135.84464,
+    "radius": 40,
+    "sources": [
+     "Wikipedia: Tamukeyama Hachimangu",
+     "Ancient-history-sites.com: Tamukeyama Hachiman Shrine",
+     "Kanpai Japan: Tamukeyama Hachiman-gu"
+    ],
+    "text": "This quiet shrine is Tamukeyama Hachimangu, and it is the guardian of Todai-ji. It was established in seven forty-nine, while the Great Buddha was being built, and it has a story worth knowing. The tale begins in Kyushu, at the great Usa Shrine, dedicated to the deity Hachiman, a protector of the country. According to tradition, a priestess of the shrine delivered an oracle declaring that Hachiman wished to go to Nara to support and guard the construction of the Buddha. The deity was brought to the capital in a grand procession, and this shrine was built to receive him. Hachiman became the protective deity of the temple. At the dedication of Todai-ji in seven fifty-two, the shrine received formal imperial thanks. This is a very early example of the blending of Shinto and Buddhism, in which a native god of Japan became a guardian of a Buddhist temple. That arrangement lasted for more than a thousand years, until the early Meiji government separated the two religions by law. After that separation, the shrine's old Hachiman image was moved into Todai-ji itself, where it is still kept as a National Treasure. Enshrined here are Hachiman along with several imperial figures associated with him. The shrine is smaller and much less crowded than the temple halls nearby, and in autumn the maple trees around it turn red, so it is a nice place to pause. From here, the path leads south toward the Kasuga shrine and the deer sanctuary.",
+    "audio": "audio/nara-tamukeyama.mp3"
+   }
+  ]
+ },
+ {
+  "id": "kasuga",
+  "name": "Kasuga Taisha & the Deer",
+  "jp": "春日大社",
+  "time": "~40 min",
+  "tip": "Kasuga Taisha's inner area is ticketed (cash). Buses run back toward Nara Station from near the shrine; allow 25–30 minutes if you walk.",
+  "stops": [
+   {
+    "id": "nara-rokuen",
+    "name": "Rokuen: the Deer Sanctuary",
+    "lat": 34.68103,
+    "lng": 135.84307,
+    "radius": 60,
+    "sources": [
+     "Nara City Tourism Association: Deer antler cutting",
+     "Japan Travel: Deer Antler-Cutting at Nara",
+     "Nara Park deer pages (narashikanko.or.jp)",
+     "Google Places visitor notes"
+    ],
+    "text": "You are at Rokuen, the deer sanctuary of Nara Park. It is run by the foundation that protects the deer, and it is where injured, ill and orphaned animals are cared for. Some deer that cannot return to the wild live here for life. In the spring and early summer, mothers and fawns are on display, with the fawns appearing around June. Visitors can usually enter by making a small donation. Rokuen is also the setting for one of Nara's most distinctive autumn traditions, the Shika no Tsunokiri, or deer antler cutting. It began in sixteen seventy-one, when the Nara magistrate started the ceremony to reduce injuries from stags during the autumn mating season, when bucks can be aggressive. Over the centuries it was held in various places around town, and a purpose-built enclosure was constructed here in nineteen twenty-nine. Every October, over the three-day holiday weekend, men in traditional happi coats, known as seko, carry red flags and herd the stags into the enclosure. The bucks are caught with ropes and held, and a Shinto priest cuts off the antlers with a saw. Antlers are made of the same kind of material as fingernails, so the animal is not hurt, and they drop off naturally each spring anyway. The cut antlers are offered to Kasuga Shrine as sacred offerings. There is also an old summer and winter ritual called Shika Yose, the calling of the deer, where horns are played and the deer come out of the forest to eat. You are very close now to the shrine itself, so keep following the main path east.",
+    "audio": "audio/nara-rokuen.mp3"
+   },
+   {
+    "id": "nara-kasuga",
+    "name": "Kasuga Taisha Grand Shrine",
+    "lat": 34.68158,
+    "lng": 135.84848,
+    "radius": 60,
+    "sources": [
+     "Wikipedia: Kasuga-taisha",
+     "Nara City Tourism Association: Deer",
+     "Google Places visitor notes"
+    ],
+    "text": "You have arrived at Kasuga Taisha, the grand shrine of Nara and the head of about three thousand Kasuga shrines across Japan. It was founded in seven sixty-eight as the shrine of the Fujiwara clan, and it enshrines four deities that are worshipped together as Kasuga Daimyojin, including Takemikazuchi, the god who rode in on the white deer. The main sanctuary is built in a style called Kasuga-zukuri, with vermilion pillars, white walls and a cypress-bark roof that sweeps forward over the front steps. The first thing most visitors notice is the lanterns. More than three thousand stone and bronze lanterns, donated over centuries, line the approach and hang along the corridors. They are all lit twice a year, at the Setsubun Mantoro on the third of February, and at the Chugen Mantoro on the fourteenth and fifteenth of August, when the whole shrine glows. The shrine also follows an ancient custom of rebuilding itself to the same specifications every twenty years, a tradition continued for over a thousand years, and the most recent rebuilding was in twenty sixteen. Behind the shrine rises the Kasugayama Primeval Forest, about two hundred fifty hectares of sacred woodland where hunting and logging have been banned since the year eight forty-one. Together with the shrine, it is part of the World Heritage listing, Historic Monuments of Ancient Nara. The outer area is free. The inner area, with its covered corridor and the famous lantern room, requires a paid ticket, and cash is needed.",
+    "audio": "audio/nara-kasuga.mp3"
+   },
+   {
+    "id": "nara-wakamiya",
+    "name": "Wakamiya Shrine",
+    "lat": 34.68011,
+    "lng": 135.84902,
+    "radius": 40,
+    "sources": [
+     "Wikipedia: Kasuga-taisha",
+     "Google Places visitor notes"
+    ],
+    "text": "Our last stop is Wakamiya, the youth shrine, a smaller shrine on the southern edge of the Kasuga complex. It was built in eleven thirty-five and honors Ame no Oshikumone, a child of two of the main Kasuga deities, which is where the name comes from, since wakamiya means young shrine. It looks modest compared with the grand shrine, but the deity here has a special role as a god of protection and good harvest in the Kasuga tradition. Wakamiya hosts the Kasuga Wakamiya On-matsuri, a festival held from the fifteenth to the eighteenth of December. It features processions and ancient performing arts, with old court music and dance, and it has been performed for nearly nine hundred years. That is only a few weeks away, so if you ever return in December, that is something worth seeing. Today, the shrine is a quiet place, and you can rest on a bench in the shade. You have now walked through more than a thousand years of Nara's history, from the pagodas and halls of Kofuku-ji, through the Great Buddha, to the forest of Kasugayama. If you are heading back, buses run from near the shrine toward Nara Station, and it is a pleasant walk downhill through the park, usually twenty-five to thirty minutes, where the deer will probably keep you company the whole way. Thank you for walking with this audio tour. Enjoy the rest of your day.",
+    "audio": "audio/nara-wakamiya.mp3"
+   }
+  ]
+ }
+]
