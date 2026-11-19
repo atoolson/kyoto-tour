@@ -135,7 +135,7 @@ function fmt(m){return m<1000?Math.round(m/10)*10+" m":(m/1000).toFixed(1)+" km"
 function dirLink(s){return "https://www.google.com/maps/dir/?api=1&destination="+s.lat+","+s.lng+"&travelmode=walking"}
 
 /* ---------- data ---------- */
-var TOURS={kyoto:{name:"Kyoto · Day Two",file:"stops.json",mins:"~1 min"},nara:{name:"Nara Park",file:"nara.json",mins:"~2 min"}};
+var TOURS={kyoto:{name:"Kyoto · Day Two",file:"stops.json",mins:"~1 min"},nara:{name:"Nara Park",file:"nara.json",mins:"~1.5 min"}};
 var tourId="kyoto";try{var t0=localStorage.getItem("tour_sel");if(TOURS[t0])tourId=t0}catch(e){}
 function loadTour(id){
   tourId=id;try{localStorage.setItem("tour_sel",id)}catch(e){}
